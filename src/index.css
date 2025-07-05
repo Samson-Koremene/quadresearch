@@ -1,53 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
+/* Professional Design System */
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 215 25% 27%;
+    --foreground: 216 28% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 27%;
+    --card-foreground: 216 28% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 27%;
+    --popover-foreground: 216 28% 15%;
 
-    --primary: 217 89% 61%;
+    --primary: 217 89% 45%;
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 217 89% 55%;
+    --primary-hover: 217 89% 40%;
 
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 215 25% 27%;
+    --secondary: 215 25% 95%;
+    --secondary-foreground: 216 28% 15%;
 
-    --muted: 218 25% 95%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 215 20% 97%;
+    --muted-foreground: 215 16% 50%;
 
-    --accent: 218 25% 95%;
-    --accent-foreground: 215 25% 27%;
+    --accent: 217 89% 96%;
+    --accent-foreground: 216 28% 15%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 218 20% 90%;
-    --input: 218 20% 90%;
-    --ring: 217 89% 61%;
+    --border: 215 20% 88%;
+    --input: 215 20% 88%;
+    --ring: 217 89% 45%;
 
-    /* Custom design tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(217 89% 61%), hsl(217 89% 45%));
-    --gradient-hero: linear-gradient(135deg, hsl(217 89% 61%) 0%, hsl(200 89% 70%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(218 25% 98%) 100%);
+    /* Professional design tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(217 89% 45%), hsl(217 89% 38%));
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(215 20% 98%));
     
-    --shadow-soft: 0 4px 20px hsl(217 89% 61% / 0.1);
-    --shadow-medium: 0 8px 30px hsl(217 89% 61% / 0.15);
-    --shadow-strong: 0 15px 45px hsl(217 89% 61% / 0.2);
+    --shadow-xs: 0 1px 2px hsl(216 28% 15% / 0.05);
+    --shadow-sm: 0 1px 3px hsl(216 28% 15% / 0.1), 0 1px 2px hsl(216 28% 15% / 0.06);
+    --shadow-md: 0 4px 6px hsl(216 28% 15% / 0.07), 0 2px 4px hsl(216 28% 15% / 0.06);
+    --shadow-lg: 0 10px 15px hsl(216 28% 15% / 0.1), 0 4px 6px hsl(216 28% 15% / 0.05);
     
-    --animation-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --animation-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-fast: all 0.15s ease-out;
+    --transition-base: all 0.2s ease-out;
 
     --radius: 0.5rem;
 

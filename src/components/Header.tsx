@@ -1,43 +1,56 @@
 import { Button } from "@/components/ui/button";
+import { Phone, Menu } from "lucide-react";
 
 const Header = () => {
   return (
     <>
-      {/* Promotional Banner */}
-      <div className="bg-gradient-primary text-primary-foreground text-sm py-2 px-4 text-center animate-fade-in">
-        <span>🔥 All the same ESSAYBOX in a new design! Special offer for our client: Click to order with 15% discount</span>
-        <span className="ml-2 bg-white/20 px-2 py-1 rounded text-xs font-semibold">FIRST15</span>
+      {/* Professional Announcement Bar */}
+      <div className="bg-primary text-primary-foreground py-3 px-4 text-center text-sm font-medium">
+        <span>Professional Academic Writing Services - Get 15% off your first order with code WELCOME15</span>
       </div>
       
-      {/* Main Header */}
-      <header className="bg-white border-b border-border shadow-soft sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
+      {/* Clean Professional Header */}
+      <header className="bg-background border-b border-border sticky top-0 z-50 backdrop-blur-sm">
+        <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            {/* Logo */}
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">📝</span>
+            {/* Professional Logo */}
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                <span className="text-primary-foreground font-bold text-lg">E</span>
               </div>
-              <span className="text-xl font-bold text-foreground">Essay Box</span>
+              <div>
+                <h1 className="text-xl font-semibold text-foreground">EssayPro</h1>
+                <p className="text-xs text-muted-foreground">Academic Excellence</p>
+              </div>
             </div>
             
-            {/* Navigation */}
-            <nav className="hidden md:flex items-center space-x-8">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                Become a Writer
+            {/* Professional Navigation */}
+            <nav className="hidden lg:flex items-center space-x-8">
+              <a href="#services" className="text-foreground hover:text-primary transition-colors font-medium">
+                Services
               </a>
-              <a href="tel:+18003980091" className="text-muted-foreground hover:text-primary transition-colors flex items-center">
-                📞 +1 (800) 398 0091
+              <a href="#pricing" className="text-foreground hover:text-primary transition-colors font-medium">
+                Pricing
               </a>
+              <a href="#samples" className="text-foreground hover:text-primary transition-colors font-medium">
+                Samples
+              </a>
+              <div className="flex items-center space-x-2 text-foreground">
+                <Phone className="w-4 h-4" />
+                <span className="font-medium">+1 (800) 398-0091</span>
+              </div>
             </nav>
             
-            {/* Action Buttons */}
+            {/* Professional CTA Buttons */}
             <div className="flex items-center space-x-4">
-              <Button variant="outline" className="hidden sm:flex">
+              <Button variant="ghost" className="hidden sm:flex font-medium">
                 Sign In
               </Button>
-              <Button className="bg-gradient-primary border-none shadow-medium hover:shadow-strong transition-all duration-300">
-                Order Paper
+              <Button size="lg" className="font-semibold px-6">
+                Order Now
+              </Button>
+              <Button variant="ghost" size="icon" className="lg:hidden">
+                <Menu className="w-5 h-5" />
               </Button>
             </div>
           </div>

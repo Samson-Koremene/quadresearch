@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card } from "@/components/ui/card";
+import { Calculator, Shield, Clock } from "lucide-react";
 import { useState } from "react";
 
 const PricingCalculator = () => {
@@ -11,7 +12,6 @@ const PricingCalculator = () => {
   const [price, setPrice] = useState(0);
 
   const calculatePrice = () => {
-    // Simple pricing logic - you can make this more sophisticated
     let basePrice = 15;
     if (academicLevel === "masters") basePrice = 20;
     if (academicLevel === "phd") basePrice = 25;
@@ -24,102 +24,122 @@ const PricingCalculator = () => {
   };
 
   return (
-    <Card className="bg-gradient-card p-6 shadow-strong border-0 animate-slide-up">
-      <div className="bg-gradient-primary text-primary-foreground p-4 rounded-t-lg -m-6 mb-6">
-        <h3 className="text-xl font-bold text-center">Calculate Price</h3>
+    <Card className="bg-card border border-border shadow-lg">
+      {/* Professional Header */}
+      <div className="bg-primary text-primary-foreground p-6 rounded-t-lg">
+        <div className="flex items-center space-x-3">
+          <Calculator className="w-6 h-6" />
+          <div>
+            <h3 className="text-xl font-bold">Price Calculator</h3>
+            <p className="text-primary-foreground/80 text-sm">Get instant pricing for your project</p>
+          </div>
+        </div>
       </div>
       
-      <div className="space-y-4">
-        <div>
-          <Select value={academicLevel} onValueChange={(value) => {
-            setAcademicLevel(value);
-            calculatePrice();
-          }}>
-            <SelectTrigger className="w-full border-border">
-              <SelectValue placeholder="College" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="highschool">High School</SelectItem>
-              <SelectItem value="college">College</SelectItem>
-              <SelectItem value="university">University</SelectItem>
-              <SelectItem value="masters">Masters</SelectItem>
-              <SelectItem value="phd">PhD</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-        
-        <div>
-          <Select value={essayType} onValueChange={(value) => {
-            setEssayType(value);
-            calculatePrice();
-          }}>
-            <SelectTrigger className="w-full border-border">
-              <SelectValue placeholder="Essay (Any Type)" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="essay">Essay (Any Type)</SelectItem>
-              <SelectItem value="research">Research Paper</SelectItem>
-              <SelectItem value="thesis">Thesis</SelectItem>
-              <SelectItem value="dissertation">Dissertation</SelectItem>
-              <SelectItem value="report">SIWES Report</SelectItem>
-              <SelectItem value="assignment">Assignment</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-        
-        <div>
-          <Select value={pages} onValueChange={(value) => {
-            setPages(value);
-            calculatePrice();
-          }}>
-            <SelectTrigger className="w-full border-border">
-              <SelectValue placeholder="Select words/Pages" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="1">1 page / 275 words</SelectItem>
-              <SelectItem value="2">2 pages / 550 words</SelectItem>
-              <SelectItem value="3">3 pages / 825 words</SelectItem>
-              <SelectItem value="5">5 pages / 1375 words</SelectItem>
-              <SelectItem value="10">10 pages / 2750 words</SelectItem>
-              <SelectItem value="15">15+ pages</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-        
-        <div>
-          <Select value={deadline} onValueChange={(value) => {
-            setDeadline(value);
-            calculatePrice();
-          }}>
-            <SelectTrigger className="w-full border-border">
-              <SelectValue placeholder="7 Days" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="24hours">24 Hours</SelectItem>
-              <SelectItem value="3days">3 Days</SelectItem>
-              <SelectItem value="7days">7 Days</SelectItem>
-              <SelectItem value="14days">14 Days</SelectItem>
-              <SelectItem value="30days">30 Days</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-        
-        <div className="border-t pt-4">
-          <div className="flex justify-between items-center mb-4">
-            <span className="text-muted-foreground">Price (USD)</span>
-            <span className="text-2xl font-bold text-primary">${price}</span>
+      <div className="p-6 space-y-6">
+        {/* Form Fields */}
+        <div className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium text-foreground mb-2">Academic Level</label>
+            <Select value={academicLevel} onValueChange={(value) => {
+              setAcademicLevel(value);
+              calculatePrice();
+            }}>
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Select level" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="highschool">High School</SelectItem>
+                <SelectItem value="college">College</SelectItem>
+                <SelectItem value="university">University</SelectItem>
+                <SelectItem value="masters">Masters</SelectItem>
+                <SelectItem value="phd">PhD</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
           
-          <Button 
-            className="w-full bg-gradient-primary border-none shadow-medium hover:shadow-strong transition-all duration-300 text-lg py-6"
-            onClick={() => window.open('#order', '_blank')}
-          >
-            ORDER NOW
+          <div>
+            <label className="block text-sm font-medium text-foreground mb-2">Paper Type</label>
+            <Select value={essayType} onValueChange={(value) => {
+              setEssayType(value);
+              calculatePrice();
+            }}>
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Select type" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="essay">Essay</SelectItem>
+                <SelectItem value="research">Research Paper</SelectItem>
+                <SelectItem value="thesis">Thesis</SelectItem>
+                <SelectItem value="dissertation">Dissertation</SelectItem>
+                <SelectItem value="report">Report</SelectItem>
+                <SelectItem value="assignment">Assignment</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          
+          <div>
+            <label className="block text-sm font-medium text-foreground mb-2">Pages / Words</label>
+            <Select value={pages} onValueChange={(value) => {
+              setPages(value);
+              calculatePrice();
+            }}>
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Select pages" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="1">1 page (275 words)</SelectItem>
+                <SelectItem value="2">2 pages (550 words)</SelectItem>
+                <SelectItem value="3">3 pages (825 words)</SelectItem>
+                <SelectItem value="5">5 pages (1,375 words)</SelectItem>
+                <SelectItem value="10">10 pages (2,750 words)</SelectItem>
+                <SelectItem value="15">15+ pages</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          
+          <div>
+            <label className="block text-sm font-medium text-foreground mb-2">Deadline</label>
+            <Select value={deadline} onValueChange={(value) => {
+              setDeadline(value);
+              calculatePrice();
+            }}>
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Select deadline" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="24hours">24 Hours</SelectItem>
+                <SelectItem value="3days">3 Days</SelectItem>
+                <SelectItem value="7days">7 Days</SelectItem>
+                <SelectItem value="14days">14 Days</SelectItem>
+                <SelectItem value="30days">30 Days</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+        </div>
+        
+        {/* Price Display */}
+        <div className="border-t pt-6">
+          <div className="flex justify-between items-center mb-6">
+            <span className="text-lg font-medium text-foreground">Total Price</span>
+            <span className="text-3xl font-bold text-primary">${price}</span>
+          </div>
+          
+          <Button className="w-full text-lg py-6 font-semibold">
+            Order Now
           </Button>
           
-          <p className="text-xs text-muted-foreground text-center mt-3">
-            I agree to the Terms and conditions
-          </p>
+          {/* Trust Indicators */}
+          <div className="grid grid-cols-2 gap-4 mt-4 pt-4 border-t">
+            <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+              <Shield className="w-4 h-4" />
+              <span>100% Secure</span>
+            </div>
+            <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+              <Clock className="w-4 h-4" />
+              <span>On-time Delivery</span>
+            </div>
+          </div>
         </div>
       </div>
     </Card>
