@@ -1,34 +1,20 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import PricingCalculator from "@/components/PricingCalculator";
 import FeaturesSection from "@/components/FeaturesSection";
 import MarketplacePreview from "@/components/MarketplacePreview";
 import TrustIndicators from "@/components/TrustIndicators";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       <Header />
       
-      <div className="relative">
-        {/* Main Content */}
-        <div className="lg:mr-80">
-          <HeroSection />
-          <FeaturesSection />
-          <MarketplacePreview />
-        </div>
-        
-        {/* Floating Pricing Calculator - Desktop */}
-        <div className="hidden lg:block fixed top-24 right-6 w-80 z-40">
-          <PricingCalculator />
-        </div>
-        
-        {/* Mobile Pricing Calculator */}
-        <div className="lg:hidden px-6 py-12 bg-muted/30">
-          <PricingCalculator />
-        </div>
-      </div>
+      <main>
+        <HeroSection />
+        <FeaturesSection />
+        <MarketplacePreview />
+      </main>
       
       <TrustIndicators />
       

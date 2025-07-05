@@ -1,7 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { CheckCircle, Users, Award, Clock } from "lucide-react";
+import { CheckCircle, Users, Award, Clock, Calculator } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
+  const navigate = useNavigate();
   return (
     <section className="bg-gradient-subtle py-20 lg:py-28">
       <div className="container mx-auto px-6">
@@ -45,8 +47,14 @@ const HeroSection = () => {
               <Button size="lg" className="px-8 py-6 text-lg font-semibold">
                 Get Started Today
               </Button>
-              <Button variant="outline" size="lg" className="px-8 py-6 text-lg font-medium">
-                View Samples
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="px-8 py-6 text-lg font-medium"
+                onClick={() => navigate('/calculator')}
+              >
+                <Calculator className="w-5 h-5 mr-2" />
+                Price Calculator
               </Button>
             </div>
           </div>
