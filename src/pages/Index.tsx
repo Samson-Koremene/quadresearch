@@ -4,8 +4,11 @@ import FeaturesSection from "@/components/FeaturesSection";
 import MarketplacePreview from "@/components/MarketplacePreview";
 import TrustIndicators from "@/components/TrustIndicators";
 import { Mail, Phone } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Index = () => {
+  const navigate = useNavigate();
+  
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       <Header />
@@ -53,11 +56,11 @@ const Index = () => {
             <div>
               <h4 className="text-lg font-semibold text-foreground mb-4">Services</h4>
               <ul className="space-y-2 text-muted-foreground">
-                <li><a href="#" className="hover:text-primary transition-colors">Essay Writing</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Research Papers</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Thesis Writing</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Dissertations</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Editing Services</a></li>
+                <li><button onClick={() => navigate('/essay-writing')} className="hover:text-primary transition-colors text-left">Essay Writing</button></li>
+                <li><button onClick={() => navigate('/research-papers')} className="hover:text-primary transition-colors text-left">Research Papers</button></li>
+                <li><button onClick={() => navigate('/calculator')} className="hover:text-primary transition-colors text-left">Thesis Writing</button></li>
+                <li><button onClick={() => navigate('/calculator')} className="hover:text-primary transition-colors text-left">Dissertations</button></li>
+                <li><button onClick={() => navigate('/calculator')} className="hover:text-primary transition-colors text-left">Editing Services</button></li>
               </ul>
             </div>
             
@@ -65,11 +68,11 @@ const Index = () => {
             <div>
               <h4 className="text-lg font-semibold text-foreground mb-4">Support</h4>
               <ul className="space-y-2 text-muted-foreground">
-                <li><a href="#" className="hover:text-primary transition-colors">How It Works</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">FAQ</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Contact Us</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Live Chat</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Quality Guarantee</a></li>
+                <li><button onClick={() => navigate('/how-it-works')} className="hover:text-primary transition-colors text-left">How It Works</button></li>
+                <li><button onClick={() => navigate('/faq')} className="hover:text-primary transition-colors text-left">FAQ</button></li>
+                <li><button onClick={() => window.open('https://wa.me/YOUR_WHATSAPP_NUMBER', '_blank')} className="hover:text-primary transition-colors text-left">Contact Us</button></li>
+                <li><button onClick={() => window.open('https://wa.me/YOUR_WHATSAPP_NUMBER', '_blank')} className="hover:text-primary transition-colors text-left">Live Chat</button></li>
+                <li><button onClick={() => navigate('/faq')} className="hover:text-primary transition-colors text-left">Quality Guarantee</button></li>
               </ul>
             </div>
           </div>

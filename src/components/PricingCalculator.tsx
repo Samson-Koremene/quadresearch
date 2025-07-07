@@ -12,14 +12,34 @@ const PricingCalculator = () => {
   const [price, setPrice] = useState(0);
 
   const calculatePrice = () => {
-    let basePrice = 15;
-    if (academicLevel === "masters") basePrice = 20;
-    if (academicLevel === "phd") basePrice = 25;
+    if (!academicLevel || !essayType || !pages || !deadline) {
+      setPrice(0);
+      return;
+    }
+
+    // Base price per page in Naira
+    let basePrice = 5000; // High School
+    if (academicLevel === "college") basePrice = 6000;
+    if (academicLevel === "university") basePrice = 7000;
+    if (academicLevel === "masters") basePrice = 9000;
+    if (academicLevel === "phd") basePrice = 12000;
+    
+    // Essay type multiplier
+    let typeMultiplier = 1;
+    if (essayType === "research") typeMultiplier = 1.3;
+    if (essayType === "thesis") typeMultiplier = 1.5;
+    if (essayType === "dissertation") typeMultiplier = 1.8;
+    if (essayType === "report") typeMultiplier = 1.2;
+    
+    // Deadline multiplier
+    let deadlineMultiplier = 1;
+    if (deadline === "24hours") deadlineMultiplier = 2.5;
+    if (deadline === "3days") deadlineMultiplier = 1.8;
+    if (deadline === "7days") deadlineMultiplier = 1.3;
+    if (deadline === "14days") deadlineMultiplier = 1.1;
     
     const pageCount = parseInt(pages) || 1;
-    const deadlineMultiplier = deadline === "24hours" ? 2 : deadline === "3days" ? 1.5 : 1;
-    
-    const totalPrice = basePrice * pageCount * deadlineMultiplier;
+    const totalPrice = Math.round(basePrice * pageCount * typeMultiplier * deadlineMultiplier);
     setPrice(totalPrice);
   };
 
@@ -122,7 +142,7 @@ const PricingCalculator = () => {
         <div className="border-t pt-6">
           <div className="flex justify-between items-center mb-6">
             <span className="text-lg font-medium text-foreground">Total Price</span>
-            <span className="text-3xl font-bold text-primary">${price}</span>
+            <span className="text-3xl font-bold text-primary">₦{price.toLocaleString()}</span>
           </div>
           
           <Button className="w-full text-lg py-6 font-semibold">
