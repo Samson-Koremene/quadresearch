@@ -53,13 +53,13 @@ const MarketplacePreview = () => {
   ];
 
   return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+    <section className="py-12 md:py-20 bg-background">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
             Academic Paper Marketplace
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
             Access our extensive collection of high-quality academic papers. 
             Browse, preview, and download instantly from our professional database.
           </p>
@@ -79,7 +79,7 @@ const MarketplacePreview = () => {
         </div>
         
         {/* Featured Papers */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12">
           {samplePapers.map((paper, index) => (
             <Card 
               key={index} 
@@ -152,7 +152,7 @@ const MarketplacePreview = () => {
         </div>
         
         <div className="text-center">
-          <Button size="lg" className="px-8 py-6 text-lg font-semibold">
+          <Button size="lg" className="px-6 md:px-8 py-4 md:py-6 text-base md:text-lg font-semibold">
             Browse All Papers
           </Button>
         </div>

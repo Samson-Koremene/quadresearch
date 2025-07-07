@@ -42,23 +42,23 @@ const FeaturesSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-muted/30">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+    <section className="py-12 md:py-20 bg-muted/30">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
             Why Students Choose Our Services
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Professional academic writing services designed to help students excel 
             in their educational journey with complete confidence.
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {features.map((feature, index) => (
             <Card 
               key={index} 
-              className="p-8 bg-card border border-border hover:shadow-md transition-all duration-300 group"
+              className="p-6 md:p-8 bg-card border border-border hover:shadow-md transition-all duration-300 group"
             >
               <div className="text-center">
                 <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors">

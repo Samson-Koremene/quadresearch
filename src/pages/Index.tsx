@@ -22,18 +22,18 @@ const Index = () => {
       <TrustIndicators />
       
       {/* Professional Footer */}
-      <footer className="bg-card border-t border-border py-16">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      <footer className="bg-card border-t border-border py-12 md:py-16">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
             {/* Company Info */}
-            <div className="md:col-span-2">
+            <div className="md:col-span-2 lg:col-span-2">
               <div className="flex items-center space-x-3 mb-4">
-                <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                  <span className="text-primary-foreground font-bold text-lg">E</span>
+                <div className="w-8 h-8 md:w-10 md:h-10 bg-primary rounded-lg flex items-center justify-center">
+                  <span className="text-primary-foreground font-bold text-base md:text-lg">E</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-foreground">EssayPro</h3>
-                  <p className="text-sm text-muted-foreground">Academic Excellence</p>
+                  <h3 className="text-lg md:text-xl font-semibold text-foreground">EssayPro</h3>
+                  <p className="text-xs md:text-sm text-muted-foreground">Academic Excellence</p>
                 </div>
               </div>
               <p className="text-muted-foreground leading-relaxed mb-6 max-w-md">

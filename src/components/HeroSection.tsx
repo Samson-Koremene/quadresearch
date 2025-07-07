@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom";
 const HeroSection = () => {
   const navigate = useNavigate();
   return (
-    <section className="bg-gradient-subtle py-20 lg:py-28">
-      <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section className="bg-gradient-subtle py-12 md:py-20 lg:py-28">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
           {/* Professional Content */}
           <div className="max-w-2xl">
             <div className="mb-6">
@@ -17,12 +17,12 @@ const HeroSection = () => {
               </span>
             </div>
             
-            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight mb-6">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight mb-6">
               Professional Academic
               <span className="text-primary block">Writing Services</span>
             </h1>
             
-            <p className="text-xl text-muted-foreground leading-relaxed mb-8 max-w-lg">
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-lg">
               Get expert help with essays, research papers, and academic projects. 
               100% original content delivered on time, every time.
             </p>
@@ -44,13 +44,13 @@ const HeroSection = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="px-8 py-6 text-lg font-semibold">
+              <Button size="lg" className="px-6 md:px-8 py-4 md:py-6 text-base md:text-lg font-semibold">
                 Get Started Today
               </Button>
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="px-8 py-6 text-lg font-medium"
+                className="px-6 md:px-8 py-4 md:py-6 text-base md:text-lg font-medium"
                 onClick={() => navigate('/calculator')}
               >
                 <Calculator className="w-5 h-5 mr-2" />
@@ -61,10 +61,10 @@ const HeroSection = () => {
           
           {/* Professional Stats Card */}
           <div className="relative">
-            <div className="bg-card rounded-2xl p-8 shadow-lg border border-border">
-              <h3 className="text-2xl font-bold text-foreground mb-6">Why Choose Us</h3>
+            <div className="bg-card rounded-2xl p-6 md:p-8 shadow-lg border border-border">
+              <h3 className="text-xl md:text-2xl font-bold text-foreground mb-6">Why Choose Us</h3>
               
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-2 gap-4 md:gap-6">
                 <div className="text-center">
                   <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-3">
                     <Users className="w-6 h-6 text-primary" />
