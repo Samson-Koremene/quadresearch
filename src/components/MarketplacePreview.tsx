@@ -1,6 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Star, Eye, Download, BookOpen } from "lucide-react";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 
 const MarketplacePreview = () => {
   const samplePapers = [
@@ -107,17 +117,33 @@ const MarketplacePreview = () => {
                 
                 <div className="flex items-center justify-between pt-4 border-t">
                   <div>
-                    <span className="text-2xl font-bold text-primary">${paper.price}</span>
-                    <span className="text-sm text-muted-foreground ml-2">{paper.pages} pages</span>
+                    <span className="text-sm text-muted-foreground">{paper.pages} pages</span>
                   </div>
                   <div className="flex space-x-2">
                     <Button variant="outline" size="sm" className="px-3">
                       <Eye className="w-4 h-4 mr-1" />
                       Preview
                     </Button>
-                    <Button size="sm" className="px-4">
-                      Buy Now
-                    </Button>
+                    <AlertDialog>
+                      <AlertDialogTrigger asChild>
+                        <Button size="sm" className="px-4">
+                          Buy Now
+                        </Button>
+                      </AlertDialogTrigger>
+                      <AlertDialogContent>
+                        <AlertDialogHeader>
+                          <AlertDialogTitle>Reach Seller</AlertDialogTitle>
+                          <AlertDialogDescription>
+                            Contact the seller directly to purchase this paper.
+                          </AlertDialogDescription>
+                        </AlertDialogHeader>
+                        <AlertDialogFooter>
+                          <AlertDialogAction onClick={() => window.open('https://wa.me/YOUR_WHATSAPP_NUMBER', '_blank')}>
+                            Contact via WhatsApp
+                          </AlertDialogAction>
+                        </AlertDialogFooter>
+                      </AlertDialogContent>
+                    </AlertDialog>
                   </div>
                 </div>
               </div>
