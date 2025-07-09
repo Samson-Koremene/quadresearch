@@ -63,7 +63,7 @@ const HeroSection = () => {
           <div className="relative">
             <div className="relative overflow-hidden rounded-2xl shadow-lg">
               <img 
-                src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                src="/lovable-uploads/1d5387c6-926d-4a16-acf4-f237d04e1911.png" 
                 alt="Student studying with headphones and books"
                 className="w-full h-[300px] sm:h-[400px] md:h-[450px] lg:h-[500px] object-cover"
                 loading="lazy"
