@@ -59,43 +59,56 @@ const HeroSection = () => {
             </div>
           </div>
           
-          {/* Professional Stats Card */}
+          {/* Student Image */}
           <div className="relative">
-            <div className="bg-card rounded-2xl p-6 md:p-8 shadow-lg border border-border">
-              <h3 className="text-xl md:text-2xl font-bold text-foreground mb-6">Why Choose Us</h3>
+            <div className="relative overflow-hidden rounded-2xl shadow-lg">
+              <img 
+                src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                alt="Student studying with headphones and books"
+                className="w-full h-[300px] sm:h-[400px] md:h-[450px] lg:h-[500px] object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Why Choose Us - Moved to Bottom */}
+        <div className="mt-12 md:mt-16 lg:mt-20">
+          <div className="bg-card rounded-2xl p-6 md:p-8 shadow-lg border border-border">
+            <h3 className="text-xl md:text-2xl font-bold text-foreground mb-6 text-center">Why Choose Us</h3>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-3">
+                  <Users className="w-6 h-6 text-primary" />
+                </div>
+                <div className="text-xl md:text-2xl font-bold text-foreground">55K+</div>
+                <div className="text-xs md:text-sm text-muted-foreground">Happy Students</div>
+              </div>
               
-              <div className="grid grid-cols-2 gap-4 md:gap-6">
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-3">
-                    <Users className="w-6 h-6 text-primary" />
-                  </div>
-                  <div className="text-2xl font-bold text-foreground">55K+</div>
-                  <div className="text-sm text-muted-foreground">Happy Students</div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-3">
+                  <Award className="w-6 h-6 text-primary" />
                 </div>
-                
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-3">
-                    <Award className="w-6 h-6 text-primary" />
-                  </div>
-                  <div className="text-2xl font-bold text-foreground">98%</div>
-                  <div className="text-sm text-muted-foreground">Success Rate</div>
+                <div className="text-xl md:text-2xl font-bold text-foreground">98%</div>
+                <div className="text-xs md:text-sm text-muted-foreground">Success Rate</div>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-3">
+                  <Clock className="w-6 h-6 text-primary" />
                 </div>
-                
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-3">
-                    <Clock className="w-6 h-6 text-primary" />
-                  </div>
-                  <div className="text-2xl font-bold text-foreground">1 Hour</div>
-                  <div className="text-sm text-muted-foreground">Min Turnaround</div>
+                <div className="text-xl md:text-2xl font-bold text-foreground">1 Hour</div>
+                <div className="text-xs md:text-sm text-muted-foreground">Min Turnaround</div>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-3">
+                  <CheckCircle className="w-6 h-6 text-primary" />
                 </div>
-                
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-3">
-                    <CheckCircle className="w-6 h-6 text-primary" />
-                  </div>
-                  <div className="text-2xl font-bold text-foreground">100%</div>
-                  <div className="text-sm text-muted-foreground">Original Work</div>
-                </div>
+                <div className="text-xl md:text-2xl font-bold text-foreground">100%</div>
+                <div className="text-xs md:text-sm text-muted-foreground">Original Work</div>
               </div>
             </div>
           </div>

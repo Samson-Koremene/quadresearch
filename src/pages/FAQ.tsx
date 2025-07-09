@@ -96,7 +96,7 @@ const FAQ = () => {
             <Button 
               size="lg" 
               className="px-8 py-6 text-lg font-semibold"
-              onClick={() => window.open('https://wa.me/YOUR_WHATSAPP_NUMBER', '_blank')}
+              onClick={() => window.open('https://wa.me/2348152185013', '_blank')}
             >
               Contact Support
             </Button>

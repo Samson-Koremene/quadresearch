@@ -38,7 +38,7 @@ const Header = () => {
               </a>
               <div className="hidden md:flex items-center space-x-2 text-foreground">
                 <Phone className="w-4 h-4" />
-                <span className="font-medium text-sm lg:text-base">+1 (800) 398-0091</span>
+                <span className="font-medium text-sm lg:text-base">+234 815 218 5013</span>
               </div>
             </nav>
             

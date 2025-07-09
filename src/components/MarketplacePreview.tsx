@@ -138,7 +138,7 @@ const MarketplacePreview = () => {
                           </AlertDialogDescription>
                         </AlertDialogHeader>
                         <AlertDialogFooter>
-                          <AlertDialogAction onClick={() => window.open('https://wa.me/YOUR_WHATSAPP_NUMBER', '_blank')}>
+                          <AlertDialogAction onClick={() => window.open('https://wa.me/2348152185013', '_blank')}>
                             Contact via WhatsApp
                           </AlertDialogAction>
                         </AlertDialogFooter>

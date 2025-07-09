@@ -43,7 +43,7 @@ const Index = () => {
               <div className="space-y-2">
                 <div className="flex items-center space-x-3 text-muted-foreground">
                   <Phone className="w-4 h-4" />
-                  <span>+1 (800) 398-0091</span>
+                  <span>+234 815 218 5013</span>
                 </div>
                 <div className="flex items-center space-x-3 text-muted-foreground">
                   <Mail className="w-4 h-4" />
@@ -70,8 +70,8 @@ const Index = () => {
               <ul className="space-y-2 text-muted-foreground">
                 <li><button onClick={() => navigate('/how-it-works')} className="hover:text-primary transition-colors text-left">How It Works</button></li>
                 <li><button onClick={() => navigate('/faq')} className="hover:text-primary transition-colors text-left">FAQ</button></li>
-                <li><button onClick={() => window.open('https://wa.me/YOUR_WHATSAPP_NUMBER', '_blank')} className="hover:text-primary transition-colors text-left">Contact Us</button></li>
-                <li><button onClick={() => window.open('https://wa.me/YOUR_WHATSAPP_NUMBER', '_blank')} className="hover:text-primary transition-colors text-left">Live Chat</button></li>
+                <li><button onClick={() => window.open('https://wa.me/2348152185013', '_blank')} className="hover:text-primary transition-colors text-left">Contact Us</button></li>
+                <li><button onClick={() => window.open('https://wa.me/2348152185013', '_blank')} className="hover:text-primary transition-colors text-left">Live Chat</button></li>
                 <li><button onClick={() => navigate('/faq')} className="hover:text-primary transition-colors text-left">Quality Guarantee</button></li>
               </ul>
             </div>
