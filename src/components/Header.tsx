@@ -1,7 +1,18 @@
 import { Button } from "@/components/ui/button";
-import { Phone } from "lucide-react";
+import { Phone, Menu, X } from "lucide-react";
+import { useState } from "react";
 
 const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const scrollToServices = () => {
+    const servicesSection = document.getElementById('services-section');
+    if (servicesSection) {
+      servicesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMenuOpen(false);
+  };
+
   return (
     <>
       {/* Professional Announcement Bar */}
@@ -25,34 +36,74 @@ const Header = () => {
               </div>
             </div>
             
-            {/* Professional Navigation - Always visible */}
-            <nav className="flex items-center space-x-4 md:space-x-6 lg:space-x-8">
-              <a href="#services" className="text-foreground hover:text-primary transition-colors font-medium text-sm md:text-base">
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
+              <button onClick={scrollToServices} className="text-foreground hover:text-primary transition-colors font-medium text-sm xl:text-base">
                 Services
-              </a>
-              <a href="#pricing" className="text-foreground hover:text-primary transition-colors font-medium text-sm md:text-base">
+              </button>
+              <a href="#pricing" className="text-foreground hover:text-primary transition-colors font-medium text-sm xl:text-base">
                 Pricing
               </a>
-              <a href="#samples" className="text-foreground hover:text-primary transition-colors font-medium text-sm md:text-base">
+              <a href="#samples" className="text-foreground hover:text-primary transition-colors font-medium text-sm xl:text-base">
                 Samples
               </a>
-              <div className="hidden md:flex items-center space-x-2 text-foreground">
+              <div className="flex items-center space-x-2 text-foreground">
                 <Phone className="w-4 h-4" />
-                <span className="font-medium text-sm lg:text-base">+234 815 218 5013</span>
+                <span className="font-medium text-sm xl:text-base">+234 815 218 5013</span>
               </div>
             </nav>
+
+            {/* Mobile Menu Button */}
+            <button 
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="lg:hidden p-2 text-foreground hover:text-primary transition-colors"
+            >
+              {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
             
-            {/* Professional CTA Buttons */}
-            <div className="flex items-center space-x-2 md:space-x-4">
-              <Button variant="ghost" className="hidden sm:flex font-medium text-sm md:text-base">
+            {/* Desktop CTA Buttons */}
+            <div className="hidden lg:flex items-center space-x-3 xl:space-x-4">
+              <Button variant="ghost" className="font-medium text-sm xl:text-base">
                 Sign In
               </Button>
-              <Button size="lg" className="font-semibold px-4 md:px-6 text-sm md:text-base">
+              <Button size="lg" className="font-semibold px-4 xl:px-6 text-sm xl:text-base">
                 Order Now
               </Button>
             </div>
           </div>
         </div>
+        
+        {/* Mobile Menu Overlay */}
+        {isMenuOpen && (
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-background border-b border-border shadow-lg z-40">
+            <nav className="container mx-auto px-4 py-4 space-y-4">
+              <button 
+                onClick={scrollToServices}
+                className="block w-full text-left py-2 text-foreground hover:text-primary transition-colors font-medium"
+              >
+                Services
+              </button>
+              <a href="#pricing" className="block py-2 text-foreground hover:text-primary transition-colors font-medium">
+                Pricing
+              </a>
+              <a href="#samples" className="block py-2 text-foreground hover:text-primary transition-colors font-medium">
+                Samples
+              </a>
+              <div className="flex items-center space-x-2 py-2 text-foreground">
+                <Phone className="w-4 h-4" />
+                <span className="font-medium">+234 815 218 5013</span>
+              </div>
+              <div className="flex flex-col space-y-2 pt-2">
+                <Button variant="ghost" className="w-full font-medium">
+                  Sign In
+                </Button>
+                <Button size="lg" className="w-full font-semibold">
+                  Order Now
+                </Button>
+              </div>
+            </nav>
+          </div>
+        )}
       </header>
     </>
   );
