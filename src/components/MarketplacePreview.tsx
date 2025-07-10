@@ -138,7 +138,7 @@ const MarketplacePreview = () => {
                           </AlertDialogDescription>
                         </AlertDialogHeader>
                         <AlertDialogFooter>
-                          <AlertDialogAction onClick={() => window.open('https://wa.me/2348152185013', '_blank')}>
+                          <AlertDialogAction onClick={() => window.open('https://wa.me/2347012847111', '_blank')}>
                             Contact via WhatsApp
                           </AlertDialogAction>
                         </AlertDialogFooter>
@@ -152,7 +152,7 @@ const MarketplacePreview = () => {
         </div>
         
         <div className="text-center">
-          <Button size="lg" className="px-6 md:px-8 py-4 md:py-6 text-base md:text-lg font-semibold">
+          <Button size="lg" className="px-6 md:px-8 py-4 md:py-6 text-base md:text-lg font-semibold" onClick={() => window.location.href = '/products'}>
             Browse All Papers
           </Button>
         </div>

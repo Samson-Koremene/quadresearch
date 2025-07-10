@@ -41,15 +41,15 @@ const Header = () => {
               <button onClick={scrollToServices} className="text-foreground hover:text-primary transition-colors font-medium text-sm xl:text-base">
                 Services
               </button>
-              <a href="#pricing" className="text-foreground hover:text-primary transition-colors font-medium text-sm xl:text-base">
+              <button onClick={() => window.location.href = '/calculator'} className="text-foreground hover:text-primary transition-colors font-medium text-sm xl:text-base">
                 Pricing
-              </a>
-              <a href="#samples" className="text-foreground hover:text-primary transition-colors font-medium text-sm xl:text-base">
+              </button>
+              <button onClick={() => window.location.href = '/calculator'} className="text-foreground hover:text-primary transition-colors font-medium text-sm xl:text-base">
                 Samples
-              </a>
+              </button>
               <div className="flex items-center space-x-2 text-foreground">
                 <Phone className="w-4 h-4" />
-                <span className="font-medium text-sm xl:text-base">+234 815 218 5013</span>
+                <span className="font-medium text-sm xl:text-base">+2347012847111</span>
               </div>
             </nav>
 
@@ -63,10 +63,7 @@ const Header = () => {
             
             {/* Desktop CTA Buttons */}
             <div className="hidden lg:flex items-center space-x-3 xl:space-x-4">
-              <Button variant="ghost" className="font-medium text-sm xl:text-base">
-                Sign In
-              </Button>
-              <Button size="lg" className="font-semibold px-4 xl:px-6 text-sm xl:text-base">
+              <Button size="lg" className="font-semibold px-4 xl:px-6 text-sm xl:text-base" onClick={() => window.location.href = '/products'}>
                 Order Now
               </Button>
             </div>
@@ -83,21 +80,18 @@ const Header = () => {
               >
                 Services
               </button>
-              <a href="#pricing" className="block py-2 text-foreground hover:text-primary transition-colors font-medium">
+              <button onClick={() => window.location.href = '/calculator'} className="block py-2 text-foreground hover:text-primary transition-colors font-medium">
                 Pricing
-              </a>
-              <a href="#samples" className="block py-2 text-foreground hover:text-primary transition-colors font-medium">
+              </button>
+              <button onClick={() => window.location.href = '/calculator'} className="block py-2 text-foreground hover:text-primary transition-colors font-medium">
                 Samples
-              </a>
+              </button>
               <div className="flex items-center space-x-2 py-2 text-foreground">
                 <Phone className="w-4 h-4" />
-                <span className="font-medium">+234 815 218 5013</span>
+                <span className="font-medium">+2347012847111</span>
               </div>
               <div className="flex flex-col space-y-2 pt-2">
-                <Button variant="ghost" className="w-full font-medium">
-                  Sign In
-                </Button>
-                <Button size="lg" className="w-full font-semibold">
+                <Button size="lg" className="w-full font-semibold" onClick={() => window.location.href = '/products'}>
                   Order Now
                 </Button>
               </div>

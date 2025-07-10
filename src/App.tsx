@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import PriceCalculatorPage from "./pages/PriceCalculatorPage";
 import EssayWriting from "./pages/EssayWriting";
 import ResearchPapers from "./pages/ResearchPapers";
+import Products from "./pages/Products";
 import FAQ from "./pages/FAQ";
 import HowItWorks from "./pages/HowItWorks";
 import NotFound from "./pages/NotFound";
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/calculator" element={<PriceCalculatorPage />} />
           <Route path="/essay-writing" element={<EssayWriting />} />
           <Route path="/research-papers" element={<ResearchPapers />} />
+          <Route path="/products" element={<Products />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/how-it-works" element={<HowItWorks />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

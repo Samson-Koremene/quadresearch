@@ -44,7 +44,7 @@ const HeroSection = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <Button size="lg" className="px-6 sm:px-8 py-3 sm:py-4 md:py-6 text-sm sm:text-base md:text-lg font-semibold">
+              <Button size="lg" className="px-6 sm:px-8 py-3 sm:py-4 md:py-6 text-sm sm:text-base md:text-lg font-semibold" onClick={() => window.open('https://wa.me/2347012847111', '_blank')}>
                 Get Started Today
               </Button>
               <Button 

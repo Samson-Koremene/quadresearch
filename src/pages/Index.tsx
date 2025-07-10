@@ -43,7 +43,7 @@ const Index = () => {
               <div className="space-y-2">
                 <div className="flex items-center space-x-3 text-muted-foreground">
                   <Phone className="w-4 h-4" />
-                  <span>+234 815 218 5013</span>
+                  <span>+2347012847111</span>
                 </div>
                 <div className="flex items-center space-x-3 text-muted-foreground">
                   <Mail className="w-4 h-4" />
@@ -60,7 +60,7 @@ const Index = () => {
                 <li><button onClick={() => navigate('/research-papers')} className="hover:text-primary transition-colors text-left">Research Papers</button></li>
                 <li><button onClick={() => navigate('/calculator')} className="hover:text-primary transition-colors text-left">Thesis Writing</button></li>
                 <li><button onClick={() => navigate('/calculator')} className="hover:text-primary transition-colors text-left">Dissertations</button></li>
-                <li><button onClick={() => navigate('/calculator')} className="hover:text-primary transition-colors text-left">Editing Services</button></li>
+                <li><button onClick={() => navigate('/products')} className="hover:text-primary transition-colors text-left">Browse All Papers</button></li>
               </ul>
             </div>
             
@@ -70,8 +70,8 @@ const Index = () => {
               <ul className="space-y-2 text-muted-foreground">
                 <li><button onClick={() => navigate('/how-it-works')} className="hover:text-primary transition-colors text-left">How It Works</button></li>
                 <li><button onClick={() => navigate('/faq')} className="hover:text-primary transition-colors text-left">FAQ</button></li>
-                <li><button onClick={() => window.open('https://wa.me/2348152185013', '_blank')} className="hover:text-primary transition-colors text-left">Contact Us</button></li>
-                <li><button onClick={() => window.open('https://wa.me/2348152185013', '_blank')} className="hover:text-primary transition-colors text-left">Live Chat</button></li>
+                <li><button onClick={() => window.open('https://wa.me/2347012847111', '_blank')} className="hover:text-primary transition-colors text-left">Contact Us</button></li>
+                <li><button onClick={() => window.open('https://wa.me/2347012847111', '_blank')} className="hover:text-primary transition-colors text-left">Live Chat</button></li>
                 <li><button onClick={() => navigate('/faq')} className="hover:text-primary transition-colors text-left">Quality Guarantee</button></li>
               </ul>
             </div>
