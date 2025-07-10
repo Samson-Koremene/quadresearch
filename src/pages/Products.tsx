@@ -13,7 +13,6 @@ const Products = () => {
       id: 1,
       title: "Research Paper",
       description: "Comprehensive research papers with proper citations and methodology",
-      price: "$15-50",
       timeframe: "3-7 days",
       pages: "5-20 pages",
       rating: 4.9,
@@ -24,7 +23,6 @@ const Products = () => {
       id: 2,
       title: "Essay Writing",
       description: "High-quality essays for all academic levels and subjects",
-      price: "$10-30",
       timeframe: "1-5 days", 
       pages: "1-10 pages",
       rating: 4.8,
@@ -35,7 +33,6 @@ const Products = () => {
       id: 3,
       title: "Thesis Writing",
       description: "Complete thesis writing with detailed research and analysis",
-      price: "$100-500",
       timeframe: "2-8 weeks",
       pages: "50-200 pages",
       rating: 4.9,
@@ -46,7 +43,6 @@ const Products = () => {
       id: 4,
       title: "Dissertation",
       description: "Comprehensive dissertation writing for PhD and Masters level",
-      price: "$200-800",
       timeframe: "4-12 weeks",
       pages: "100-300 pages", 
       rating: 4.8,
@@ -57,7 +53,6 @@ const Products = () => {
       id: 5,
       title: "Case Study",
       description: "Detailed case study analysis with real-world applications",
-      price: "$20-60",
       timeframe: "2-6 days",
       pages: "5-15 pages",
       rating: 4.7,
@@ -68,7 +63,6 @@ const Products = () => {
       id: 6,
       title: "Lab Report",
       description: "Scientific lab reports with proper formatting and analysis",
-      price: "$15-40",
       timeframe: "1-4 days",
       pages: "3-12 pages",
       rating: 4.6,
@@ -79,7 +73,6 @@ const Products = () => {
       id: 7,
       title: "Book Review",
       description: "Critical book reviews and literary analysis",
-      price: "$12-35",
       timeframe: "1-3 days",
       pages: "2-8 pages",
       rating: 4.5,
@@ -90,7 +83,6 @@ const Products = () => {
       id: 8,
       title: "Term Paper",
       description: "Comprehensive term papers for semester-end submissions",
-      price: "$25-75",
       timeframe: "3-10 days",
       pages: "8-25 pages",
       rating: 4.8,
@@ -145,8 +137,8 @@ const Products = () => {
 
               <CardContent className="space-y-4">
                 <div className="flex justify-between items-center">
-                  <span className="font-semibold text-lg text-primary">{product.price}</span>
                   <span className="text-sm text-muted-foreground">{product.pages}</span>
+                  <span className="text-sm font-medium text-accent-foreground bg-accent px-2 py-1 rounded">Contact for Price</span>
                 </div>
                 
                 <div className="flex items-center space-x-2 text-sm text-muted-foreground">

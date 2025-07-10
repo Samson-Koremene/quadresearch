@@ -51,10 +51,10 @@ const HeroSection = () => {
                 variant="outline" 
                 size="lg" 
                 className="px-6 sm:px-8 py-3 sm:py-4 md:py-6 text-sm sm:text-base md:text-lg font-medium"
-                onClick={() => navigate('/calculator')}
+                onClick={() => navigate('/products')}
               >
                 <Calculator className="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
-                Price Calculator
+                Browse Samples
               </Button>
             </div>
           </div>

@@ -44,7 +44,7 @@ const Header = () => {
               <button onClick={() => window.location.href = '/calculator'} className="text-foreground hover:text-primary transition-colors font-medium text-sm xl:text-base">
                 Pricing
               </button>
-              <button onClick={() => window.location.href = '/calculator'} className="text-foreground hover:text-primary transition-colors font-medium text-sm xl:text-base">
+              <button onClick={() => window.location.href = '/products'} className="text-foreground hover:text-primary transition-colors font-medium text-sm xl:text-base">
                 Samples
               </button>
               <div className="flex items-center space-x-2 text-foreground">
@@ -83,7 +83,7 @@ const Header = () => {
               <button onClick={() => window.location.href = '/calculator'} className="block py-2 text-foreground hover:text-primary transition-colors font-medium">
                 Pricing
               </button>
-              <button onClick={() => window.location.href = '/calculator'} className="block py-2 text-foreground hover:text-primary transition-colors font-medium">
+              <button onClick={() => window.location.href = '/products'} className="block py-2 text-foreground hover:text-primary transition-colors font-medium">
                 Samples
               </button>
               <div className="flex items-center space-x-2 py-2 text-foreground">

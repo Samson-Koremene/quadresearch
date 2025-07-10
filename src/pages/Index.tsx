@@ -83,9 +83,9 @@ const Index = () => {
                 © 2024 EssayPro. All rights reserved. Professional academic writing services.
               </div>
               <div className="flex space-x-6 text-muted-foreground text-sm">
-                <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
-                <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
-                <a href="#" className="hover:text-primary transition-colors">Cookie Policy</a>
+                <button onClick={() => navigate('/faq')} className="hover:text-primary transition-colors">Privacy Policy</button>
+                <button onClick={() => navigate('/faq')} className="hover:text-primary transition-colors">Terms of Service</button>
+                <button onClick={() => navigate('/faq')} className="hover:text-primary transition-colors">Cookie Policy</button>
               </div>
             </div>
           </div>
