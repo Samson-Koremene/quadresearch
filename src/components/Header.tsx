@@ -63,7 +63,7 @@ const Header = () => {
             
             {/* Desktop CTA Buttons */}
             <div className="hidden lg:flex items-center space-x-3 xl:space-x-4">
-              <Button size="lg" className="font-semibold px-4 xl:px-6 text-sm xl:text-base" onClick={() => window.location.href = '/products'}>
+              <Button size="lg" className="font-semibold px-4 xl:px-6 text-sm xl:text-base" onClick={() => window.open('https://wa.me/2347012847111', '_blank')}>
                 Order Now
               </Button>
             </div>
@@ -91,7 +91,7 @@ const Header = () => {
                 <span className="font-medium">+2347012847111</span>
               </div>
               <div className="flex flex-col space-y-2 pt-2">
-                <Button size="lg" className="w-full font-semibold" onClick={() => window.location.href = '/products'}>
+                <Button size="lg" className="w-full font-semibold" onClick={() => window.open('https://wa.me/2347012847111', '_blank')}>
                   Order Now
                 </Button>
               </div>
