@@ -22,10 +22,13 @@ const PriceCalculatorPage = () => {
             </Button>
             
             <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-sm">E</span>
-              </div>
-              <h1 className="text-lg font-semibold text-foreground">EssayPro</h1>
+              <img 
+                src="/lovable-uploads/0d3a775b-537c-4111-8322-ea0be5f8a7dd.png" 
+                alt="Quad Research Logo" 
+                className="w-8 h-8 object-contain"
+                loading="lazy"
+              />
+              <h1 className="text-lg font-semibold text-foreground">Quad Research</h1>
             </div>
           </div>
         </div>
