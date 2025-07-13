@@ -27,11 +27,14 @@ const Header = () => {
           <div className="flex items-center justify-between">
             {/* Professional Logo */}
             <div className="flex items-center space-x-2 md:space-x-3">
-              <div className="w-8 h-8 md:w-10 md:h-10 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-base md:text-lg">E</span>
-              </div>
+              <img 
+                src="/lovable-uploads/0d3a775b-537c-4111-8322-ea0be5f8a7dd.png" 
+                alt="Quad Research Logo" 
+                className="w-8 h-8 md:w-10 md:h-10 object-contain"
+                loading="lazy"
+              />
               <div className="hidden sm:block">
-                <h1 className="text-lg md:text-xl font-semibold text-foreground">EssayPro</h1>
+                <h1 className="text-lg md:text-xl font-semibold text-foreground">Quad Research</h1>
                 <p className="text-xs text-muted-foreground">Academic Excellence</p>
               </div>
             </div>
