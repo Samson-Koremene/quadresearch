@@ -79,7 +79,7 @@ const ResearchPapers = () => {
               size="lg" 
               className="px-8 py-6 text-lg font-semibold"
               onClick={() => {
-                const whatsappURL = 'https://wa.me/2349027997876?text=Hello! I would like to order research paper writing services.';
+                const whatsappURL = 'https://wa.me/2347012847111?text=Hello! I would like to order research paper writing services.';
                 window.open(whatsappURL, '_blank');
               }}
             >

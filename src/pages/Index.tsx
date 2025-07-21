@@ -57,11 +57,11 @@ const Index = () => {
                 <li><button onClick={() => navigate('/essay-writing')} className="hover:text-primary transition-colors text-left">Essay Writing</button></li>
                 <li><button onClick={() => navigate('/research-papers')} className="hover:text-primary transition-colors text-left">Research Papers</button></li>
                 <li><button onClick={() => {
-                  const whatsappURL = 'https://wa.me/2349027997876?text=Hello! I would like to order thesis writing services.';
+                  const whatsappURL = 'https://wa.me/2347012847111?text=Hello! I would like to order thesis writing services.';
                   window.open(whatsappURL, '_blank');
                 }} className="hover:text-primary transition-colors text-left">Thesis Writing</button></li>
                 <li><button onClick={() => {
-                  const whatsappURL = 'https://wa.me/2349027997876?text=Hello! I would like to order dissertation writing services.';
+                  const whatsappURL = 'https://wa.me/2347012847111?text=Hello! I would like to order dissertation writing services.';
                   window.open(whatsappURL, '_blank');
                 }} className="hover:text-primary transition-colors text-left">Dissertations</button></li>
                 <li><button onClick={() => navigate('/products')} className="hover:text-primary transition-colors text-left">Browse All Papers</button></li>

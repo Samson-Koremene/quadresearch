@@ -109,7 +109,7 @@ const Products = () => {
             size="lg" 
             className="px-8 py-6 text-lg"
             onClick={() => {
-              const whatsappURL = 'https://wa.me/2349027997876?text=Hello! I would like to order a custom paper.';
+              const whatsappURL = 'https://wa.me/2347012847111?text=Hello! I would like to order a custom paper.';
               window.open(whatsappURL, '_blank');
             }}
           >
@@ -163,7 +163,7 @@ const Products = () => {
                 <Button 
                   className="w-full"
                   onClick={() => {
-                    const whatsappURL = 'https://wa.me/2349027997876?text=Hello! I would like to order this paper or a similar one.';
+                    const whatsappURL = 'https://wa.me/2347012847111?text=Hello! I would like to order this paper or a similar one.';
                     window.open(whatsappURL, '_blank');
                   }}
                 >
@@ -201,7 +201,7 @@ const Products = () => {
               variant="outline" 
               size="lg"
               onClick={() => {
-                const whatsappURL = 'https://wa.me/2349027997876?text=Hello! I would like to get a quote for my custom paper.';
+                const whatsappURL = 'https://wa.me/2347012847111?text=Hello! I would like to get a quote for my custom paper.';
                 window.open(whatsappURL, '_blank');
               }}
             >
