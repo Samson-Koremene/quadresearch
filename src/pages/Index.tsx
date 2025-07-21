@@ -28,11 +28,9 @@ const Index = () => {
             {/* Company Info */}
             <div className="md:col-span-2 lg:col-span-2">
               <div className="flex items-center space-x-3 mb-4">
-                <div className="w-8 h-8 md:w-10 md:h-10 bg-primary rounded-lg flex items-center justify-center">
-                  <span className="text-primary-foreground font-bold text-base md:text-lg">E</span>
-                </div>
+            
                 <div>
-                  <h3 className="text-lg md:text-xl font-semibold text-foreground">EssayPro</h3>
+                  <h3 className="text-lg md:text-xl font-semibold text-foreground">QuadResearch</h3>
                   <p className="text-xs md:text-sm text-muted-foreground">Academic Excellence</p>
                 </div>
               </div>
@@ -47,7 +45,7 @@ const Index = () => {
                 </div>
                 <div className="flex items-center space-x-3 text-muted-foreground">
                   <Mail className="w-4 h-4" />
-                  <span>support@essaypro.com</span>
+                  <span>support@quadresearch.com</span>
                 </div>
               </div>
             </div>
