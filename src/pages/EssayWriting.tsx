@@ -78,7 +78,10 @@ const EssayWriting = () => {
             <Button 
               size="lg" 
               className="px-8 py-6 text-lg font-semibold"
-              onClick={() => navigate('/calculator')}
+              onClick={() => {
+                const whatsappURL = 'https://wa.me/2349027997876?text=Hello! I would like to order an essay writing service. Please provide me with more details.';
+                window.open(whatsappURL, '_blank');
+              }}
             >
               Get Started - Calculate Price
             </Button>

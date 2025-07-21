@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { CheckCircle, Users, Award, Clock, Calculator } from "lucide-react";
+import { CheckCircle, Users, Award, Clock, BookOpen } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
@@ -53,7 +53,7 @@ const HeroSection = () => {
                 className="px-6 sm:px-8 py-3 sm:py-4 md:py-6 text-sm sm:text-base md:text-lg font-medium"
                 onClick={() => navigate('/products')}
               >
-                <Calculator className="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
+                <BookOpen className="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
                 Browse Samples
               </Button>
             </div>

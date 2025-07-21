@@ -108,7 +108,10 @@ const Products = () => {
           <Button 
             size="lg" 
             className="px-8 py-6 text-lg"
-            onClick={() => navigate('/calculator')}
+            onClick={() => {
+              const whatsappURL = 'https://wa.me/2349027997876?text=Hello! I would like to order a custom paper.';
+              window.open(whatsappURL, '_blank');
+            }}
           >
             Calculate Price
           </Button>
@@ -159,7 +162,10 @@ const Products = () => {
               <CardFooter className="flex flex-col space-y-2">
                 <Button 
                   className="w-full"
-                  onClick={() => navigate('/calculator')}
+                  onClick={() => {
+                    const whatsappURL = 'https://wa.me/2349027997876?text=Hello! I would like to order this paper or a similar one.';
+                    window.open(whatsappURL, '_blank');
+                  }}
                 >
                   Order Now
                 </Button>
@@ -194,9 +200,12 @@ const Products = () => {
             <Button 
               variant="outline" 
               size="lg"
-              onClick={() => navigate('/calculator')}
+              onClick={() => {
+                const whatsappURL = 'https://wa.me/2349027997876?text=Hello! I would like to get a quote for my custom paper.';
+                window.open(whatsappURL, '_blank');
+              }}
             >
-              Use Price Calculator
+              Get Quote via WhatsApp
             </Button>
           </div>
         </div>

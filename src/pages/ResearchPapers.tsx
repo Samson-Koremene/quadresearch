@@ -78,7 +78,10 @@ const ResearchPapers = () => {
             <Button 
               size="lg" 
               className="px-8 py-6 text-lg font-semibold"
-              onClick={() => navigate('/calculator')}
+              onClick={() => {
+                const whatsappURL = 'https://wa.me/2349027997876?text=Hello! I would like to order research paper writing services.';
+                window.open(whatsappURL, '_blank');
+              }}
             >
               Start Your Research Project
             </Button>

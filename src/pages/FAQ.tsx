@@ -14,7 +14,7 @@ const FAQ = () => {
   const faqs = [
     {
       question: "How do I place an order?",
-      answer: "Simply use our price calculator to get a quote, then contact us via WhatsApp to discuss your requirements and place your order."
+      answer: "Simply contact us via WhatsApp to discuss your requirements and get a quote for your order."
     },
     {
       question: "What payment methods do you accept?",

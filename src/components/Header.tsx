@@ -44,8 +44,8 @@ const Header = () => {
               <button onClick={scrollToServices} className="text-foreground hover:text-primary transition-colors font-medium text-sm xl:text-base">
                 Services
               </button>
-              <button onClick={() => window.location.href = '/calculator'} className="text-foreground hover:text-primary transition-colors font-medium text-sm xl:text-base">
-                Pricing
+              <button onClick={() => window.location.href = '/products'} className="text-foreground hover:text-primary transition-colors font-medium text-sm xl:text-base">
+                Browse Papers
               </button>
               <button onClick={() => window.location.href = '/products'} className="text-foreground hover:text-primary transition-colors font-medium text-sm xl:text-base">
                 Samples
@@ -83,8 +83,8 @@ const Header = () => {
               >
                 Services
               </button>
-              <button onClick={() => window.location.href = '/calculator'} className="block py-2 text-foreground hover:text-primary transition-colors font-medium">
-                Pricing
+              <button onClick={() => window.location.href = '/products'} className="block py-2 text-foreground hover:text-primary transition-colors font-medium">
+                Browse Papers
               </button>
               <button onClick={() => window.location.href = '/products'} className="block py-2 text-foreground hover:text-primary transition-colors font-medium">
                 Samples

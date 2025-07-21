@@ -9,7 +9,7 @@ const HowItWorks = () => {
     {
       icon: MessageCircle,
       title: "1. Contact Us",
-      description: "Use our price calculator and contact us via WhatsApp with your requirements"
+      description: "Contact us via WhatsApp with your requirements and get a personalized quote"
     },
     {
       icon: FileText,
@@ -100,7 +100,10 @@ const HowItWorks = () => {
             <Button 
               size="lg" 
               className="px-8 py-6 text-lg font-semibold"
-              onClick={() => navigate('/calculator')}
+              onClick={() => {
+                const whatsappURL = 'https://wa.me/2349027997876?text=Hello! I would like to learn more about your services and place an order.';
+                window.open(whatsappURL, '_blank');
+              }}
             >
               Get Started Now
             </Button>
