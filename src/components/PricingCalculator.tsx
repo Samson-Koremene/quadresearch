@@ -11,36 +11,78 @@ const PricingCalculator = () => {
   const [deadline, setDeadline] = useState("");
   const [price, setPrice] = useState(0);
 
+  // Professional pricing structure
+  const academicLevelPricing = {
+    highschool: { base: 4500, complexity: 1.0 },
+    college: { base: 5500, complexity: 1.1 },
+    university: { base: 6500, complexity: 1.2 },
+    masters: { base: 8500, complexity: 1.4 },
+    phd: { base: 11500, complexity: 1.6 }
+  };
+
+  const paperTypeMultipliers = {
+    essay: 1.0,
+    assignment: 1.1,
+    report: 1.2,
+    research: 1.4,
+    thesis: 1.6,
+    dissertation: 1.8
+  };
+
+  const deadlineMultipliers = {
+    "24hours": 2.8,
+    "3days": 2.0,
+    "7days": 1.4,
+    "14days": 1.2,
+    "30days": 1.0
+  };
+
   const calculatePrice = () => {
     if (!academicLevel || !essayType || !pages || !deadline) {
       setPrice(0);
       return;
     }
 
-    // Base price per page in Naira
-    let basePrice = 5000; // High School
-    if (academicLevel === "college") basePrice = 6000;
-    if (academicLevel === "university") basePrice = 7000;
-    if (academicLevel === "masters") basePrice = 9000;
-    if (academicLevel === "phd") basePrice = 12000;
-    
-    // Essay type multiplier
-    let typeMultiplier = 1;
-    if (essayType === "research") typeMultiplier = 1.3;
-    if (essayType === "thesis") typeMultiplier = 1.5;
-    if (essayType === "dissertation") typeMultiplier = 1.8;
-    if (essayType === "report") typeMultiplier = 1.2;
-    
-    // Deadline multiplier
-    let deadlineMultiplier = 1;
-    if (deadline === "24hours") deadlineMultiplier = 2.5;
-    if (deadline === "3days") deadlineMultiplier = 1.8;
-    if (deadline === "7days") deadlineMultiplier = 1.3;
-    if (deadline === "14days") deadlineMultiplier = 1.1;
+    const levelConfig = academicLevelPricing[academicLevel as keyof typeof academicLevelPricing];
+    const typeMultiplier = paperTypeMultipliers[essayType as keyof typeof paperTypeMultipliers];
+    const urgencyMultiplier = deadlineMultipliers[deadline as keyof typeof deadlineMultipliers];
     
     const pageCount = parseInt(pages) || 1;
-    const totalPrice = Math.round(basePrice * pageCount * typeMultiplier * deadlineMultiplier);
-    setPrice(totalPrice);
+    
+    // Professional calculation with quality factors
+    const basePrice = levelConfig.base;
+    const complexityFactor = levelConfig.complexity;
+    
+    let totalPrice = basePrice * pageCount * typeMultiplier * urgencyMultiplier * complexityFactor;
+    
+    // Apply bulk discount for larger orders
+    if (pageCount >= 10) totalPrice *= 0.9; // 10% discount
+    if (pageCount >= 20) totalPrice *= 0.85; // 15% total discount
+    
+    setPrice(Math.round(totalPrice));
+  };
+
+  const handleOrderNow = () => {
+    if (price === 0) {
+      alert("Please complete all fields to get your pricing before ordering.");
+      return;
+    }
+
+    const orderDetails = `Hello! I would like to place an order for:
+
+📚 Academic Level: ${academicLevel.charAt(0).toUpperCase() + academicLevel.slice(1)}
+📝 Paper Type: ${essayType.charAt(0).toUpperCase() + essayType.slice(1)}
+📄 Pages: ${pages} pages
+⏰ Deadline: ${deadline.replace(/(\d+)/, '$1 ').replace('hours', 'Hours').replace('days', 'Days')}
+
+💰 Total Price: ₦${price.toLocaleString()}
+
+Please confirm this order and provide me with the next steps.`;
+
+    const encodedMessage = encodeURIComponent(orderDetails);
+    const whatsappURL = `https://wa.me/2349027997876?text=${encodedMessage}`;
+    
+    window.open(whatsappURL, '_blank');
   };
 
   return (
@@ -145,8 +187,12 @@ const PricingCalculator = () => {
             <span className="text-3xl font-bold text-primary">₦{price.toLocaleString()}</span>
           </div>
           
-          <Button className="w-full text-lg py-6 font-semibold">
-            Order Now
+          <Button 
+            onClick={handleOrderNow}
+            className="w-full text-lg py-6 font-semibold"
+            disabled={price === 0}
+          >
+            {price === 0 ? "Complete Form to Order" : "Order Now via WhatsApp"}
           </Button>
           
           {/* Trust Indicators */}
