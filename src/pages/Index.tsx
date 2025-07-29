@@ -3,6 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import MarketplacePreview from "@/components/MarketplacePreview";
 import TrustIndicators from "@/components/TrustIndicators";
+import ContactForm from "@/components/ContactForm";
 import { Mail, Phone } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -20,6 +21,8 @@ const Index = () => {
       </main>
 
       <TrustIndicators />
+      
+      <ContactForm />
 
       {/* Professional Footer */}
       <footer
