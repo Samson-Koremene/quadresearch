@@ -1,212 +1,136 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { MessageSquare } from "lucide-react";
+import { motion } from "framer-motion";
+
+const paperTypes = ["Essay", "Research Paper", "Project", "Seminar Paper", "Thesis", "Dissertation", "Assignment", "SIWES Technical Report"];
+const levels = ["High School", "College", "Undergraduate", "Masters", "PhD"];
 
 const ContactForm = () => {
   const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    paperType: "",
-    academicLevel: "",
-    email: "",
-    phoneNumber: "",
-    researchTopic: "",
-    instructions: "",
-  });
+  const [form, setForm] = useState({ paperType: "", level: "", email: "", phone: "", topic: "", notes: "" });
+  const set = (f: string, v: string) => setForm(p => ({ ...p, [f]: v }));
 
-  const paperTypes = [
-    "Project",
-    "Seminar", 
-    "Thesis",
-    "Assignment",
-    "SIWES Technical Report"
-  ];
-
-  const academicLevels = [
-    "High School",
-    "College",
-    "Undergraduate", 
-    "Masters",
-    "PhD"
-  ];
-
-  const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({
-      ...prev,
-      [field]: value
-    }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const submit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Validate required fields
-    if (!formData.paperType || !formData.academicLevel || !formData.email || !formData.phoneNumber) {
-      toast({
-        title: "Missing Information",
-        description: "Please fill in all required fields before submitting.",
-        variant: "destructive",
-      });
+    if (!form.paperType || !form.level || !form.email || !form.phone) {
+      toast({ title: "Fill in all required fields", variant: "destructive" });
       return;
     }
-
-    // Create WhatsApp message
-    const whatsappMessage = `Hello! I would like to place an order with the following details:
-
-📝 Type of Paper: ${formData.paperType}
-🎓 Academic Level: ${formData.academicLevel}
-📧 Email: ${formData.email}
-📞 Phone: ${formData.phoneNumber}
-${formData.researchTopic ? `📚 Research Topic: ${formData.researchTopic}` : ""}
-${formData.instructions ? `📋 Instructions: ${formData.instructions}` : ""}
-
-Please provide me with a quote and further details.`;
-
-    const whatsappURL = `https://wa.me/2347012847111?text=${encodeURIComponent(whatsappMessage)}`;
-    
-    window.open(whatsappURL, "_blank");
-    
-    toast({
-      title: "Redirecting to WhatsApp",
-      description: "You'll be connected with our support team shortly.",
-    });
+    const msg = `Hello! Order request:\n\n📝 ${form.paperType}\n🎓 ${form.level}\n📧 ${form.email}\n📞 ${form.phone}${form.topic ? `\n📚 Topic: ${form.topic}` : ""}${form.notes ? `\n📋 Notes: ${form.notes}` : ""}\n\nPlease send a quote.`;
+    window.open(`https://wa.me/2347012847111?text=${encodeURIComponent(msg)}`, "_blank");
+    toast({ title: "Opening WhatsApp…" });
   };
 
   return (
-    <section className="py-16 bg-gradient-to-br from-accent/50 to-muted/50">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-2xl mx-auto">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Get Your Custom Paper
+    <section className="py-16 md:py-28 bg-muted/30">
+      <div className="container mx-auto px-4 md:px-8">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-start">
+
+          {/* Left info panel */}
+          <motion.div
+            initial={{ opacity: 0, x: -24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="lg:sticky lg:top-28"
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.8rem] font-black text-foreground leading-tight mb-3">
+              Ready to get started?
             </h2>
-            <p className="text-muted-foreground text-lg">
-              Fill out the form below and we'll get back to you with a personalized quote
+            <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-6">
+              Fill in your details and we'll connect you with the right writer. Fast, confidential, professional.
             </p>
-          </div>
-
-          <Card className="shadow-lg border-0 bg-card/80 backdrop-blur-sm">
-            <CardHeader>
-              <CardTitle className="text-xl text-center text-foreground">
-                Order Details
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Type of Paper */}
-                <div className="space-y-2">
-                  <Label htmlFor="paperType" className="text-sm font-medium text-foreground">
-                    Type of Paper *
-                  </Label>
-                  <Select value={formData.paperType} onValueChange={(value) => handleInputChange("paperType", value)}>
-                    <SelectTrigger className="w-full">
-                      <SelectValue placeholder="Select paper type" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-card border border-border shadow-lg">
-                      {paperTypes.map((type) => (
-                        <SelectItem key={type} value={type} className="hover:bg-accent">
-                          {type}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                {/* Academic Level */}
-                <div className="space-y-2">
-                  <Label htmlFor="academicLevel" className="text-sm font-medium text-foreground">
-                    Academic Level *
-                  </Label>
-                  <Select value={formData.academicLevel} onValueChange={(value) => handleInputChange("academicLevel", value)}>
-                    <SelectTrigger className="w-full">
-                      <SelectValue placeholder="Select academic level" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-card border border-border shadow-lg">
-                      {academicLevels.map((level) => (
-                        <SelectItem key={level} value={level} className="hover:bg-accent">
-                          {level}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                {/* Email */}
-                <div className="space-y-2">
-                  <Label htmlFor="email" className="text-sm font-medium text-foreground">
-                    Email *
-                  </Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="your.email@example.com"
-                    value={formData.email}
-                    onChange={(e) => handleInputChange("email", e.target.value)}
-                    className="w-full"
-                    required
-                  />
-                </div>
-
-                {/* Phone Number */}
-                <div className="space-y-2">
-                  <Label htmlFor="phoneNumber" className="text-sm font-medium text-foreground">
-                    Phone Number *
-                  </Label>
-                  <Input
-                    id="phoneNumber"
-                    type="tel"
-                    placeholder="+234 XXX XXX XXXX"
-                    value={formData.phoneNumber}
-                    onChange={(e) => handleInputChange("phoneNumber", e.target.value)}
-                    className="w-full"
-                    required
-                  />
-                </div>
-
-                {/* Research Topic */}
-                <div className="space-y-2">
-                  <Label htmlFor="researchTopic" className="text-sm font-medium text-foreground">
-                    Approved Research Topic
-                  </Label>
-                  <Textarea
-                    id="researchTopic"
-                    placeholder="Enter your approved research topic (if any)"
-                    value={formData.researchTopic}
-                    onChange={(e) => handleInputChange("researchTopic", e.target.value)}
-                    className="w-full min-h-[80px] resize-none"
-                  />
-                </div>
-
-                {/* Instructions */}
-                <div className="space-y-2">
-                  <Label htmlFor="instructions" className="text-sm font-medium text-foreground">
-                    Instructions
-                  </Label>
-                  <Textarea
-                    id="instructions"
-                    placeholder="Please provide any specific instructions, requirements, or additional details for your order"
-                    value={formData.instructions}
-                    onChange={(e) => handleInputChange("instructions", e.target.value)}
-                    className="w-full min-h-[120px] resize-none"
-                  />
-                </div>
-
-                {/* Submit Button */}
-                <Button 
-                  type="submit" 
-                  className="w-full bg-primary hover:bg-primary-hover text-primary-foreground font-medium py-3 flex items-center justify-center gap-2"
+            <div className="space-y-3 mb-7">
+              {["100% plagiarism-free, every time", "Delivery from as fast as 1 hour", "Free revisions until you're satisfied", "Completely confidential — always"].map((item, i) => (
+                <motion.div
+                  key={item}
+                  initial={{ opacity: 0, x: -12 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.35, delay: i * 0.08 }}
+                  className="flex items-center gap-3 text-foreground/75 text-sm"
                 >
-                  <MessageSquare className="w-5 h-5" />
-                  Submit Order via WhatsApp
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                  {item}
+                </motion.div>
+              ))}
+            </div>
+            <button
+              onClick={() => window.open('https://wa.me/2347012847111', '_blank')}
+              className="flex items-center gap-3 p-4 rounded-2xl border border-green-200 bg-green-50 hover:bg-green-100 transition-colors w-full text-left"
+            >
+              <div className="w-10 h-10 bg-green-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                <MessageSquare className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-green-900">Prefer to chat first?</p>
+                <p className="text-xs text-green-600">Message us directly on WhatsApp</p>
+              </div>
+            </button>
+          </motion.div>
+
+          {/* Form card */}
+          <motion.div
+            initial={{ opacity: 0, x: 24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="bg-card border border-border rounded-2xl p-5 sm:p-8 shadow-xl"
+          >
+            <form onSubmit={submit} className="space-y-4">
+              {/* Paper type + level — stack on mobile */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="space-y-1.5">
+                  <Label className="text-sm font-semibold">Paper Type *</Label>
+                  <Select value={form.paperType} onValueChange={v => set("paperType", v)}>
+                    <SelectTrigger><SelectValue placeholder="Select type" /></SelectTrigger>
+                    <SelectContent>{paperTypes.map(t => <SelectItem key={t} value={t}>{t}</SelectItem>)}</SelectContent>
+                  </Select>
+                </div>
+                <div className="space-y-1.5">
+                  <Label className="text-sm font-semibold">Academic Level *</Label>
+                  <Select value={form.level} onValueChange={v => set("level", v)}>
+                    <SelectTrigger><SelectValue placeholder="Select level" /></SelectTrigger>
+                    <SelectContent>{levels.map(l => <SelectItem key={l} value={l}>{l}</SelectItem>)}</SelectContent>
+                  </Select>
+                </div>
+              </div>
+
+              {/* Email + phone — stack on mobile */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="space-y-1.5">
+                  <Label className="text-sm font-semibold">Email *</Label>
+                  <Input type="email" placeholder="you@email.com" value={form.email} onChange={e => set("email", e.target.value)} required />
+                </div>
+                <div className="space-y-1.5">
+                  <Label className="text-sm font-semibold">Phone *</Label>
+                  <Input type="tel" placeholder="+234 XXX XXX XXXX" value={form.phone} onChange={e => set("phone", e.target.value)} required />
+                </div>
+              </div>
+
+              <div className="space-y-1.5">
+                <Label className="text-sm font-semibold">Research Topic <span className="font-normal text-muted-foreground">(optional)</span></Label>
+                <Textarea placeholder="Your approved topic, if any…" value={form.topic} onChange={e => set("topic", e.target.value)} className="min-h-[70px] resize-none" />
+              </div>
+              <div className="space-y-1.5">
+                <Label className="text-sm font-semibold">Instructions <span className="font-normal text-muted-foreground">(optional)</span></Label>
+                <Textarea placeholder="Deadline, formatting style, specific requirements…" value={form.notes} onChange={e => set("notes", e.target.value)} className="min-h-[80px] resize-none" />
+              </div>
+
+              <Button type="submit" size="lg" className="w-full text-base font-bold shadow-lg shadow-primary/20 flex items-center justify-center gap-2 py-6">
+                <MessageSquare className="w-5 h-5" />
+                Send Order via WhatsApp
+              </Button>
+              <p className="text-center text-xs text-muted-foreground">Your information is kept strictly confidential.</p>
+            </form>
+          </motion.div>
+
         </div>
       </div>
     </section>

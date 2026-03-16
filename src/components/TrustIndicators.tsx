@@ -1,75 +1,93 @@
 import { Star } from "lucide-react";
+import { motion, useAnimationControls } from "framer-motion";
 
-const TrustIndicators = () => {
-  const reviews = [
-    {
-      platform: "Sitejabber",
-      rating: 4.7,
-      maxRating: 5,
-      bgColor: "bg-purple-600",
-      textColor: "text-purple-600"
-    },
-    {
-      platform: "Reviews.io", 
-      rating: 4.9,
-      maxRating: 5,
-      bgColor: "bg-gray-900",
-      textColor: "text-gray-900"
-    },
-    {
-      platform: "RankMyWriter",
-      rating: 4.8,
-      maxRating: 5,
-      bgColor: "bg-green-600", 
-      textColor: "text-green-600"
-    }
-  ];
+const testimonials = [
+  { name: "Adaeze O.", level: "Masters Student, UNILAG", text: "My thesis was delivered 2 days early and my supervisor was genuinely impressed. I didn't expect this level of quality.", rating: 5, image: "/testimonial 1.jpg" },
+  { name: "Emeka T.", level: "Undergraduate, FUTO", text: "I was skeptical at first. The research paper came back 100% original with proper citations. I'll definitely be back.", rating: 5, image: "/testimonial 2.jpg" },
+  { name: "Fatima B.", level: "PhD Candidate, ABU", text: "They understood my field perfectly. Fast, professional, and completely confidential. Exactly what I needed.", rating: 5, image: "/testimonial 3.jpg" },
+  { name: "Chukwuemeka A.", level: "Masters Student, UI", text: "Submitted my seminar paper on time and got an A. The writer clearly understood the topic inside out.", rating: 5, image: "/testimonial 1.jpg" },
+  { name: "Blessing N.", level: "Undergraduate, UNIPORT", text: "Very professional service. My project was well-researched and properly formatted. Highly recommend.", rating: 5, image: "/testimonial 2.jpg" },
+  { name: "Ibrahim K.", level: "PhD Candidate, OAU", text: "I've used them three times now. Consistent quality every single time. Worth every naira.", rating: 5, image: "/testimonial 3.jpg" },
+];
 
-  const renderStars = (rating: number, maxRating: number) => {
-    return Array.from({ length: maxRating }, (_, index) => (
-      <Star
-        key={index}
-        className={`w-4 h-4 ${
-          index < Math.floor(rating) 
-            ? 'text-yellow-500 fill-current' 
-            : 'text-gray-300'
-        }`}
-      />
-    ));
+const Card = ({ name, level, text, rating, image }: typeof testimonials[0]) => (
+  <div
+    className="flex-shrink-0 rounded-2xl p-6"
+    style={{
+      width: 300,
+      background: "rgba(255,255,255,0.06)",
+      backdropFilter: "blur(16px)",
+      WebkitBackdropFilter: "blur(16px)",
+      border: "1px solid rgba(255,255,255,0.12)",
+      boxShadow: "0 8px 32px rgba(0,0,0,0.25)",
+    }}
+  >
+    <div className="flex gap-0.5 mb-4">
+      {[...Array(rating)].map((_, j) => (
+        <Star key={j} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+      ))}
+    </div>
+    <p className="text-white/70 text-sm leading-relaxed mb-6">"{text}"</p>
+    <div className="flex items-center gap-3">
+      <img src={image} alt={name} className="w-9 h-9 rounded-full object-cover flex-shrink-0 ring-2 ring-white/20" />
+      <div>
+        <p className="text-white text-sm font-semibold">{name}</p>
+        <p className="text-white/35 text-xs mt-0.5">{level}</p>
+      </div>
+    </div>
+  </div>
+);
+
+const MarqueeRow = ({ reverse = false }: { reverse?: boolean }) => {
+  const controls = useAnimationControls();
+
+  const start = () => {
+    controls.start({
+      x: reverse ? ["-100%", "0%"] : ["0%", "-100%"],
+      transition: { duration: 30, ease: "linear", repeat: Infinity },
+    });
   };
 
   return (
-    <section className="bg-foreground py-12">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-8">
-          <h3 className="text-2xl font-bold text-background mb-2">Trusted by Students Worldwide</h3>
-          <p className="text-gray-300">See what our customers say about us</p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {reviews.map((review, index) => (
-            <div key={index} className="bg-background rounded-xl p-6 text-center shadow-lg">
-              <div className={`w-12 h-12 ${review.bgColor} rounded-full flex items-center justify-center mx-auto mb-4`}>
-                <Star className="w-6 h-6 text-white fill-current" />
-              </div>
-              
-              <h4 className="text-lg font-semibold text-foreground mb-2">{review.platform}</h4>
-              
-              <div className="flex items-center justify-center space-x-1 mb-2">
-                {renderStars(review.rating, review.maxRating)}
-              </div>
-              
-              <div className="text-2xl font-bold text-foreground mb-1">
-                {review.rating}/{review.maxRating}
-              </div>
-              
-              <p className="text-muted-foreground text-sm">Based on verified reviews</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <motion.div
+      className="flex gap-5 w-max mb-5"
+      animate={controls}
+      onViewportEnter={start}
+      onHoverStart={() => controls.stop()}
+      onHoverEnd={start}
+    >
+      {[...testimonials, ...testimonials].map((t, i) => <Card key={i} {...t} />)}
+    </motion.div>
   );
 };
+
+const TrustIndicators = () => (
+  <section className="py-20 bg-[hsl(216,35%,10%)] overflow-hidden">
+
+    {/* Heading */}
+    <div className="container mx-auto px-4 md:px-8 mb-10">
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="text-2xl sm:text-3xl md:text-4xl font-black text-white"
+      >
+        Testimonials
+      </motion.h2>
+    </div>
+
+    {/* Scrolling cards */}
+    <div className="relative">
+      <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-28 z-10"
+        style={{ background: "linear-gradient(to right, hsl(216,35%,10%), transparent)" }} />
+      <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-28 z-10"
+        style={{ background: "linear-gradient(to left, hsl(216,35%,10%), transparent)" }} />
+
+      <MarqueeRow />
+    </div>
+
+  </section>
+);
 
 export default TrustIndicators;

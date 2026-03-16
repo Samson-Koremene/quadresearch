@@ -1,26 +1,23 @@
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, PenTool, CheckCircle } from "lucide-react";
+import { PenTool, CheckCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import useSEO from "@/hooks/useSEO";
 
 const EssayWriting = () => {
   const navigate = useNavigate();
+  useSEO({
+    title: "Essay Writing Service Nigeria — All Academic Levels",
+    description: "Professional essay writing for Nigerian students. Argumentative, descriptive, narrative, expository essays — all levels from high school to PhD. 100% original, on-time delivery.",
+    canonical: "/essay-writing",
+  });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
-      <header className="bg-card border-b border-border py-4">
-        <div className="container mx-auto px-6">
-          <Button 
-            variant="ghost" 
-            onClick={() => navigate('/')}
-            className="flex items-center space-x-2"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <span>Back to Home</span>
-          </Button>
-        </div>
-      </header>
+    <div className="min-h-screen bg-background">
+      <Header />
 
-      <main className="container mx-auto px-6 py-12">
+      <main className="container mx-auto px-6 py-16">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
@@ -88,6 +85,7 @@ const EssayWriting = () => {
           </div>
         </div>
       </main>
+      <Footer />
     </div>
   );
 };

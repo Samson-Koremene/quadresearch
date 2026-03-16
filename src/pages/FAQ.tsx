@@ -1,109 +1,162 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, ChevronDown } from "lucide-react";
-import { useNavigate } from "react-router-dom";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { Eye, EyeOff, MessageSquare } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { faqs } from "./faqData";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import useSEO from "@/hooks/useSEO";
 
-const FAQ = () => {
-  const navigate = useNavigate();
-
-  const faqs = [
-    {
-      question: "How do I place an order?",
-      answer: "Simply contact us via WhatsApp to discuss your requirements and get a quote for your order."
-    },
-    {
-      question: "What payment methods do you accept?",
-      answer: "We accept bank transfers, mobile money, and other secure payment methods. Payment details will be provided when you contact us."
-    },
-    {
-      question: "How long does it take to complete my paper?",
-      answer: "Delivery time depends on your chosen deadline - from 24 hours to 30 days. Urgent orders may incur additional charges."
-    },
-    {
-      question: "Is my work plagiarism-free?",
-      answer: "Yes, we guarantee 100% original, plagiarism-free content. All papers are written from scratch and checked with plagiarism detection tools."
-    },
-    {
-      question: "Can I request revisions?",
-      answer: "Yes, we offer unlimited free revisions within 14 days of delivery to ensure your complete satisfaction."
-    },
-    {
-      question: "Is my personal information confidential?",
-      answer: "Absolutely. We maintain strict confidentiality and never share your personal information or order details with third parties."
-    },
-    {
-      question: "What if I'm not satisfied with my paper?",
-      answer: "We offer a money-back guarantee if the delivered work doesn't meet your requirements or our quality standards."
-    },
-    {
-      question: "Do you provide 24/7 support?",
-      answer: "Yes, our customer support team is available 24/7 via WhatsApp to assist you with any questions or concerns."
-    }
-  ];
+const FAQItem = ({ question, answer, index }: { question: string; answer: string; index: number }) => {
+  const [open, setOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
-      <header className="bg-card border-b border-border py-4">
-        <div className="container mx-auto px-6">
-          <Button 
-            variant="ghost" 
-            onClick={() => navigate('/')}
-            className="flex items-center space-x-2"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <span>Back to Home</span>
-          </Button>
-        </div>
-      </header>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.4, delay: index * 0.06, ease: "easeOut" }}
+      className="border border-border rounded-2xl overflow-hidden transition-all duration-300"
+      style={{
+        background: open ? "hsl(var(--card))" : "hsl(var(--card))",
+        boxShadow: open ? "0 4px 24px rgba(0,0,0,0.07)" : "none",
+      }}
+    >
+      <button
+        onClick={() => setOpen(v => !v)}
+        className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left group"
+      >
+        <span className="text-sm sm:text-base font-semibold text-foreground leading-snug group-hover:text-primary transition-colors duration-200">
+          {question}
+        </span>
 
-      <main className="container mx-auto px-6 py-12">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-foreground mb-4">
-              Frequently Asked Questions
-            </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              Find answers to common questions about our services
-            </p>
-          </div>
-
-          <Accordion type="single" collapsible className="space-y-4">
-            {faqs.map((faq, index) => (
-              <AccordionItem 
-                key={index} 
-                value={`item-${index}`}
-                className="bg-card border border-border rounded-lg px-6"
+        {/* Eye icon toggle */}
+        <motion.div
+          animate={{ scale: open ? 1.1 : 1 }}
+          transition={{ duration: 0.2 }}
+          className="flex-shrink-0 w-9 h-9 rounded-xl flex items-center justify-center transition-colors duration-200"
+          style={{
+            background: open ? "hsl(var(--primary) / 0.12)" : "hsl(var(--muted))",
+          }}
+        >
+          <AnimatePresence mode="wait" initial={false}>
+            {open ? (
+              <motion.span
+                key="eye-open"
+                initial={{ opacity: 0, scale: 0.7 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.7 }}
+                transition={{ duration: 0.15 }}
               >
-                <AccordionTrigger className="text-left hover:no-underline">
-                  <span className="font-semibold text-foreground">{faq.question}</span>
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-relaxed">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+                <Eye className="w-4 h-4 text-primary" />
+              </motion.span>
+            ) : (
+              <motion.span
+                key="eye-off"
+                initial={{ opacity: 0, scale: 0.7 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.7 }}
+                transition={{ duration: 0.15 }}
+              >
+                <EyeOff className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors duration-200" />
+              </motion.span>
+            )}
+          </AnimatePresence>
+        </motion.div>
+      </button>
 
-          <div className="text-center mt-12">
-            <p className="text-muted-foreground mb-4">
-              Still have questions? Contact us directly
-            </p>
-            <Button 
-              size="lg" 
-              className="px-8 py-6 text-lg font-semibold"
-              onClick={() => window.open('https://wa.me/2347012847111', '_blank')}
-            >
-              Contact Support
-            </Button>
-          </div>
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="overflow-hidden"
+          >
+            <div className="px-6 pb-5">
+              <div className="h-px bg-border mb-4" />
+              <p className="text-muted-foreground text-sm leading-relaxed">{answer}</p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+};
+
+const FAQ = () => {
+  useSEO({
+    title: "Frequently Asked Questions",
+    description: "Got questions about Quad Research? Find answers about our academic writing process, pricing, plagiarism policy, revisions, confidentiality and delivery times.",
+    canonical: "/faq",
+  });
+
+  return (
+  <div className="min-h-screen bg-background">
+    <Header />
+
+    <main>
+      {/* Hero */}
+      <section
+        className="relative py-16 sm:py-20 overflow-hidden"
+        style={{ background: "linear-gradient(135deg, hsl(216,35%,10%) 0%, hsl(217,45%,14%) 60%, hsl(216,35%,11%) 100%)" }}
+      >
+        <div className="pointer-events-none absolute -top-32 -left-20 w-[400px] h-[400px] rounded-full opacity-20"
+          style={{ background: "radial-gradient(circle, hsl(217,89%,50%) 0%, transparent 70%)" }} />
+        <div className="container mx-auto px-4 md:px-8">
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55 }}
+            className="text-3xl sm:text-4xl md:text-5xl font-black text-white leading-tight mb-3"
+          >
+            Frequently Asked Questions
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-white/55 text-base sm:text-lg max-w-xl"
+          >
+            Everything you need to know before placing your order.
+          </motion.p>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* FAQ list */}
+      <section className="py-14 md:py-20">
+        <div className="container mx-auto px-4 md:px-8 max-w-2xl">
+          <div className="space-y-3">
+            {faqs.map((faq, i) => (
+              <FAQItem key={i} index={i} question={faq.question} answer={faq.answer} />
+            ))}
+          </div>
+
+          {/* CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mt-14 text-center"
+          >
+            <p className="text-muted-foreground text-sm mb-5">Still have questions? We're on WhatsApp 24/7.</p>
+            <Button
+              size="lg"
+              className="h-14 px-10 text-base font-bold rounded-2xl shadow-lg shadow-primary/20 flex items-center gap-2 mx-auto"
+              onClick={() => window.open("https://wa.me/2347012847111", "_blank")}
+            >
+              <MessageSquare className="w-4 h-4" />
+              Chat with Us
+            </Button>
+          </motion.div>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </div>
   );
 };
 

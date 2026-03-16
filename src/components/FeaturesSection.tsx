@@ -1,83 +1,85 @@
-import { Card } from "@/components/ui/card";
 import { GraduationCap, FileText, Shield, Clock, Lock, Award } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+
+const services = [
+  { icon: GraduationCap, title: "All Academic Levels",  desc: "Undergraduate, Masters, PhD — matched to writers who know your field.",        color: "#3b82f6", bg: "#3b82f610" },
+  { icon: FileText,       title: "20+ Paper Types",      desc: "Essays, theses, dissertations, SIWES reports, seminar papers and more.",         color: "#8b5cf6", bg: "#8b5cf610" },
+  { icon: Shield,         title: "Zero Plagiarism",      desc: "Written from scratch, checked with professional tools before delivery.",         color: "#10b981", bg: "#10b98110" },
+  { icon: Clock,          title: "On-Time, Every Time",  desc: "Tight deadline? We deliver in as little as 1 hour. No excuses.",                 color: "#f59e0b", bg: "#f59e0b10" },
+  { icon: Lock,           title: "Fully Confidential",   desc: "Your identity and order details are never shared with anyone.",                  color: "#ef4444", bg: "#ef444410" },
+  { icon: Award,          title: "Quality Reviewed",     desc: "Every paper is reviewed by an expert before it reaches you.",                    color: "#06b6d4", bg: "#06b6d410" },
+];
 
 const FeaturesSection = () => {
-  const features = [
-    {
-      icon: GraduationCap,
-      title: "All Academic Levels",
-      description: "Expert assistance from undergraduate to PhD level across all disciplines",
-      highlight: "PhD Qualified Writers"
-    },
-    {
-      icon: FileText,
-      title: "Comprehensive Services",
-      description: "Essays, research papers, theses, dissertations, and specialized reports",
-      highlight: "20+ Paper Types"
-    },
-    {
-      icon: Shield,
-      title: "100% Original Content",
-      description: "Plagiarism-free guarantee with comprehensive quality controls",
-      highlight: "Zero Plagiarism"
-    },
-    {
-      icon: Clock,
-      title: "Reliable Delivery",
-      description: "24/7 support with guaranteed on-time delivery for all projects",
-      highlight: "Always On Time"
-    },
-    {
-      icon: Lock,
-      title: "Complete Confidentiality",
-      description: "Your privacy and academic integrity are our highest priorities",
-      highlight: "100% Secure"
-    },
-    {
-      icon: Award,
-      title: "Quality Assurance",
-      description: "Rigorous quality checks by experienced academic professionals",
-      highlight: "Premium Quality"
-    }
-  ];
+  const navigate = useNavigate();
 
   return (
-    <section className="py-12 md:py-20 bg-muted/30">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
-            Why Students Choose Our Services
+    <section id="services-section" className="py-20 md:py-28 relative overflow-hidden"
+      style={{ background: "linear-gradient(160deg, hsl(216,35%,97%) 0%, hsl(217,50%,93%) 100%)" }}
+    >
+      <div className="container mx-auto px-4 md:px-8">
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.55, ease: "easeOut" }}
+          className="mb-14"
+        >
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.8rem] font-black text-foreground leading-tight mb-3">
+            Why Students Choose Us
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Professional academic writing services designed to help students excel 
-            in their educational journey with complete confidence.
+          <p className="text-muted-foreground text-lg max-w-lg">
+            Over 55,000 students trust us. Here's what sets us apart.
           </p>
-        </div>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {features.map((feature, index) => (
-            <Card 
-              key={index} 
-              className="p-6 md:p-8 bg-card border border-border hover:shadow-md transition-all duration-300 group"
+        </motion.div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {services.map(({ icon: Icon, title, desc, color, bg }, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.45, delay: i * 0.08, ease: "easeOut" }}
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              className="group relative rounded-2xl p-7 cursor-pointer overflow-hidden transition-all duration-300"
+              style={{
+                background: "rgba(255,255,255,0.55)",
+                backdropFilter: "blur(20px)",
+                WebkitBackdropFilter: "blur(20px)",
+                border: "1px solid rgba(255,255,255,0.7)",
+                boxShadow: "0 4px 24px rgba(0,0,0,0.06)",
+              }}
+              onClick={() => navigate('/products')}
             >
-              <div className="text-center">
-                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors">
-                  <feature.icon className="w-8 h-8 text-primary" />
+              {/* Hover color wash */}
+              <div
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"
+                style={{ background: `linear-gradient(135deg, ${bg} 0%, transparent 70%)` }}
+              />
+
+              <div className="relative z-10">
+                <div
+                  className="w-12 h-12 rounded-2xl flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110"
+                  style={{ background: bg, border: `1px solid ${color}25` }}
+                >
+                  <Icon className="w-5 h-5" style={{ color }} />
                 </div>
-                
-                <h3 className="text-xl font-semibold text-foreground mb-3">
-                  {feature.title}
+
+                <h3 className="text-base font-bold text-foreground mb-2 group-hover:text-foreground transition-colors">
+                  {title}
                 </h3>
-                
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  {feature.description}
-                </p>
-                
-                <div className="inline-flex items-center px-4 py-2 rounded-full bg-accent text-accent-foreground text-sm font-medium">
-                  {feature.highlight}
-                </div>
+                <p className="text-muted-foreground text-sm leading-relaxed">{desc}</p>
+
+                {/* Bottom accent line */}
+                <div
+                  className="mt-5 h-0.5 w-0 group-hover:w-10 transition-all duration-300 rounded-full"
+                  style={{ background: color }}
+                />
               </div>
-            </Card>
+            </motion.div>
           ))}
         </div>
       </div>

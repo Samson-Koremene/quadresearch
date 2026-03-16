@@ -1,26 +1,23 @@
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, BookOpen, CheckCircle } from "lucide-react";
+import { BookOpen, CheckCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import useSEO from "@/hooks/useSEO";
 
 const ResearchPapers = () => {
   const navigate = useNavigate();
+  useSEO({
+    title: "Research Paper Writing Service Nigeria — APA, MLA, Harvard",
+    description: "Expert research paper writing for Nigerian students. Literature reviews, data analysis, methodology, all citation styles. PhD-qualified writers, plagiarism-free guarantee.",
+    canonical: "/research-papers",
+  });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
-      <header className="bg-card border-b border-border py-4">
-        <div className="container mx-auto px-6">
-          <Button 
-            variant="ghost" 
-            onClick={() => navigate('/')}
-            className="flex items-center space-x-2"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <span>Back to Home</span>
-          </Button>
-        </div>
-      </header>
+    <div className="min-h-screen bg-background">
+      <Header />
 
-      <main className="container mx-auto px-6 py-12">
+      <main className="container mx-auto px-6 py-16">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
@@ -88,6 +85,7 @@ const ResearchPapers = () => {
           </div>
         </div>
       </main>
+      <Footer />
     </div>
   );
 };
