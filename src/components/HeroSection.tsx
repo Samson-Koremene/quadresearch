@@ -50,19 +50,24 @@ const Image3D = () => {
       >
 
         {/* The image */}
-        <img
-          src="/hero.png"
-          alt="Student studying"
-          className="relative z-10 w-full h-[360px] sm:h-[500px] lg:h-[88vh] object-cover object-top rounded-t-[1.5rem] lg:rounded-t-[1.9rem] rounded-b-none"
-          style={{
-            WebkitMaskImage: "linear-gradient(to bottom, black 55%, transparent 100%), linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
-            WebkitMaskComposite: "destination-in",
-            maskImage: "linear-gradient(to bottom, black 55%, transparent 100%), linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
-            maskComposite: "intersect",
-          }}
-          loading="eager"
-          draggable={false}
-        />
+        <picture>
+          <source srcSet="/hero.webp" type="image/webp" />
+          <img
+            src="/hero.png"
+            alt="Student studying"
+            className="relative z-10 w-full h-[360px] sm:h-[500px] lg:h-[88vh] object-cover object-top rounded-t-[1.5rem] lg:rounded-t-[1.9rem] rounded-b-none"
+            style={{
+              WebkitMaskImage: "linear-gradient(to bottom, black 55%, transparent 100%), linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
+              WebkitMaskComposite: "destination-in",
+              maskImage: "linear-gradient(to bottom, black 55%, transparent 100%), linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
+              maskComposite: "intersect",
+            }}
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+            draggable={false}
+          />
+        </picture>
 
 
 
