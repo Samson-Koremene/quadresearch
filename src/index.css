@@ -116,3 +116,28 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Prevent horizontal scrollbar from marquee/overflow on mobile */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Hide scrollbars on marquee containers */
+.marquee-container {
+  overflow: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.marquee-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Float animation for hero cards */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}

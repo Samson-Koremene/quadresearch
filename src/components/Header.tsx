@@ -24,11 +24,11 @@ const Header = () => {
         🎓 Get 15% off your first order — use code <span className="font-bold">WELCOME15</span>
       </div>
 
-      <header className="bg-white/95 backdrop-blur-md border-b border-border shadow-sm">
+      <header className="bg-white border-b border-border shadow-sm">
         <div className="container mx-auto px-4 md:px-8 py-3.5 flex items-center justify-between">
 
           {/* Logo */}
-          <button onClick={() => navigate('/')} className="flex items-center gap-3">
+          <button onClick={() => { navigate('/'); setIsMenuOpen(false); }} className="flex items-center gap-3">
             <img src="/favicon.ico" alt="Quad Research" className="w-9 h-9 rounded-xl shadow-md shadow-primary/30" />
             <div className="text-left">
               <div className="text-[15px] font-bold text-foreground leading-none">Quad Research</div>

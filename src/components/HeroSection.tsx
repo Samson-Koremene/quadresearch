@@ -22,6 +22,8 @@ const Image3D = () => {
   const rotateX = useTransform(springY, [-1, 1], [6, -6]);
 
   const onMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    // Only apply tilt on non-touch devices
+    if (window.matchMedia("(hover: none)").matches) return;
     const r = ref.current?.getBoundingClientRect();
     if (!r) return;
     mx.set(((e.clientX - r.left) / r.width - 0.5) * 2);
@@ -245,7 +247,7 @@ const HeroSection = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="w-full sm:w-auto h-14 px-8 text-base font-semibold rounded-2xl bg-transparent text-white/75 hover:text-white transition-colors"
+                className="w-full sm:w-auto h-14 px-8 text-base font-semibold rounded-2xl bg-transparent text-white/75 hover:text-black hover:bg-white transition-colors"
                 style={{ borderColor: "rgba(255,255,255,0.18)" }}
                 onClick={() => navigate("/products")}
               >

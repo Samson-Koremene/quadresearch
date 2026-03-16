@@ -26,7 +26,7 @@ const Footer = () => {
                 <Phone className="w-4 h-4" /> +2347012847111
               </a>
               <a href="mailto:support@quadresearch.com" className="flex items-center gap-2.5 text-white/50 hover:text-white text-sm transition-colors">
-                <Mail className="w-4 h-4" /> support@quadresearch.com
+                <Mail className="w-4 h-4" /> thetechmarket.hub@gmail.com
               </a>
             </div>
           </div>
@@ -75,8 +75,8 @@ const Footer = () => {
         </div>
 
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-white/30 text-sm"> © 2026 Quad Research. All rights reserved.</p>
-          <div className="flex gap-6">
+          <p className="text-white/30 text-sm text-center md:text-left">© 2026 Quad Research. All rights reserved.</p>
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6">
             {["Privacy Policy", "Terms of Service", "Cookie Policy"].map(label => (
               <button key={label} onClick={() => navigate("/faq")}
                 className="text-white/30 hover:text-white/70 text-sm transition-colors">

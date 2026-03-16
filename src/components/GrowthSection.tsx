@@ -47,7 +47,7 @@ const GrowthSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-20 items-center">
 
           {/* LEFT — interactive steps */}
           <div className="space-y-3">
@@ -131,7 +131,7 @@ const GrowthSection = () => {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.98 }}
               transition={{ duration: 0.35, ease: "easeOut" }}
-              className="rounded-3xl p-8 border shadow-xl"
+              className="rounded-3xl p-5 sm:p-8 border shadow-xl"
               style={{
                 background: `linear-gradient(135deg, ${current.color}08 0%, transparent 60%)`,
                 borderColor: `${current.color}25`,

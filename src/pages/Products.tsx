@@ -50,7 +50,7 @@ const PreviewModal = ({ paper, onClose }: { paper: Paper; onClose: () => void })
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}
     className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4"
-    style={{ background: "rgba(0,0,0,0.6)", backdropFilter: "blur(4px)" }}
+    style={{ background: "rgba(0,0,0,0.7)" }}
     onClick={onClose}
   >
     <motion.div

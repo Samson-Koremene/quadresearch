@@ -44,11 +44,9 @@ const FeaturesSection = () => {
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.45, delay: i * 0.08, ease: "easeOut" }}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="group relative rounded-2xl p-7 cursor-pointer overflow-hidden transition-all duration-300"
+              className="group relative rounded-2xl p-5 sm:p-7 cursor-pointer overflow-hidden transition-all duration-300"
               style={{
-                background: "rgba(255,255,255,0.55)",
-                backdropFilter: "blur(20px)",
-                WebkitBackdropFilter: "blur(20px)",
+                background: "rgba(255,255,255,0.92)",
                 border: "1px solid rgba(255,255,255,0.7)",
                 boxShadow: "0 4px 24px rgba(0,0,0,0.06)",
               }}
