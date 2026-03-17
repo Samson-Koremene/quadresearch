@@ -100,7 +100,7 @@ const FAQ = () => {
       {/* Hero */}
       <section
         className="relative py-16 sm:py-20 overflow-hidden"
-        style={{ background: "linear-gradient(135deg, hsl(216,35%,10%) 0%, hsl(217,45%,14%) 60%, hsl(216,35%,11%) 100%)" }}
+        style={{ background: "linear-gradient(135deg, hsl(220,15%,18%) 0%, hsl(220,12%,22%) 60%, hsl(220,15%,19%) 100%)" }}
       >
         <div className="pointer-events-none absolute -top-32 -left-20 w-[400px] h-[400px] rounded-full opacity-20"
           style={{ background: "radial-gradient(circle, hsl(217,89%,50%) 0%, transparent 70%)" }} />

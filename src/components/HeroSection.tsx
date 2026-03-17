@@ -132,7 +132,7 @@ const HeroSection = () => {
   return (
     <section
       className="relative overflow-hidden"
-      style={{ background: "linear-gradient(135deg, hsl(216,35%,10%) 0%, hsl(217,45%,14%) 60%, hsl(216,35%,11%) 100%)" }}
+      style={{ background: "linear-gradient(135deg, hsl(220,15%,18%) 0%, hsl(220,12%,22%) 60%, hsl(220,15%,19%) 100%)" }}
     >
       {/* Faint academic SVG pattern */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-[0.012]">

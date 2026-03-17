@@ -64,7 +64,7 @@ const MarqueeRow = ({ reverse = false }: { reverse?: boolean }) => {
 };
 
 const TrustIndicators = () => (
-  <section className="py-20 bg-[hsl(216,35%,10%)] overflow-hidden w-full max-w-[100vw]">
+  <section className="py-20 bg-[hsl(220,15%,18%)] overflow-hidden w-full max-w-[100vw]">
 
     {/* Heading */}
     <div className="container mx-auto px-4 md:px-8 mb-10">
@@ -82,9 +82,9 @@ const TrustIndicators = () => (
     {/* Scrolling cards */}
     <div className="relative overflow-hidden">
       <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-28 z-10"
-        style={{ background: "linear-gradient(to right, hsl(216,35%,10%), transparent)" }} />
+        style={{ background: "linear-gradient(to right, hsl(220,15%,18%), transparent)" }} />
       <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-28 z-10"
-        style={{ background: "linear-gradient(to left, hsl(216,35%,10%), transparent)" }} />
+        style={{ background: "linear-gradient(to left, hsl(220,15%,18%), transparent)" }} />
 
       <MarqueeRow />
     </div>

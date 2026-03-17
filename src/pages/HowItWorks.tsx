@@ -57,7 +57,7 @@ const HowItWorks = () => {
       {/* Hero */}
       <section
         className="relative py-24 overflow-hidden"
-        style={{ background: "linear-gradient(135deg, hsl(216,35%,10%) 0%, hsl(217,45%,14%) 60%, hsl(216,35%,11%) 100%)" }}
+        style={{ background: "linear-gradient(135deg, hsl(220,15%,18%) 0%, hsl(220,12%,22%) 60%, hsl(220,15%,19%) 100%)" }}
       >
         <div className="pointer-events-none absolute -top-32 -left-20 w-[400px] h-[400px] rounded-full opacity-20"
           style={{ background: "radial-gradient(circle, hsl(217,89%,50%) 0%, transparent 70%)" }} />
@@ -201,7 +201,7 @@ const HowItWorks = () => {
       {/* CTA */}
       <section
         className="py-20 relative overflow-hidden"
-        style={{ background: "linear-gradient(135deg, hsl(216,35%,10%) 0%, hsl(217,45%,14%) 100%)" }}
+        style={{ background: "linear-gradient(135deg, hsl(220,15%,18%) 0%, hsl(220,12%,22%) 100%)" }}
       >
         <div className="pointer-events-none absolute bottom-0 right-0 w-[300px] h-[300px] rounded-full opacity-10"
           style={{ background: "radial-gradient(circle, hsl(217,89%,55%) 0%, transparent 70%)" }} />
