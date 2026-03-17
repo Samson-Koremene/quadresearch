@@ -13,16 +13,16 @@ const levels = ["High School", "College", "Undergraduate", "Masters", "PhD"];
 
 const ContactForm = () => {
   const { toast } = useToast();
-  const [form, setForm] = useState({ paperType: "", level: "", email: "", phone: "", topic: "", notes: "" });
+  const [form, setForm] = useState({ name: "", paperType: "", level: "", email: "", phone: "", topic: "", notes: "" });
   const set = (f: string, v: string) => setForm(p => ({ ...p, [f]: v }));
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.paperType || !form.level || !form.email || !form.phone) {
+    if (!form.name || !form.paperType || !form.level || !form.email || !form.phone) {
       toast({ title: "Fill in all required fields", variant: "destructive" });
       return;
     }
-    const msg = `Hello! Order request:\n\n📝 ${form.paperType}\n🎓 ${form.level}\n📧 ${form.email}\n📞 ${form.phone}${form.topic ? `\n📚 Topic: ${form.topic}` : ""}${form.notes ? `\n📋 Notes: ${form.notes}` : ""}\n\nPlease send a quote.`;
+    const msg = `Hello! Order request:\n\n👤 ${form.name}\n📝 ${form.paperType}\n🎓 ${form.level}\n📧 ${form.email}\n📞 ${form.phone}${form.topic ? `\n📚 Topic: ${form.topic}` : ""}${form.notes ? `\n📋 Notes: ${form.notes}` : ""}\n\nPlease send a quote.`;
     window.open(`https://wa.me/2347012847111?text=${encodeURIComponent(msg)}`, "_blank");
     toast({ title: "Opening WhatsApp…" });
   };
@@ -84,6 +84,12 @@ const ContactForm = () => {
             className="bg-card border border-border rounded-2xl p-5 sm:p-8 shadow-xl"
           >
             <form onSubmit={submit} className="space-y-4">
+              {/* Name */}
+              <div className="space-y-1.5">
+                <Label className="text-sm font-semibold">Full Name *</Label>
+                <Input type="text" placeholder="Your full name" value={form.name} onChange={e => set("name", e.target.value)} required />
+              </div>
+
               {/* Paper type + level — stack on mobile */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
