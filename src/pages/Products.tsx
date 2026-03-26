@@ -193,6 +193,25 @@ const Products = () => {
     title: "Browse Sample Papers — Essays, Research, Thesis & More",
     description: "Browse 18+ sample academic papers across all subjects and levels. Filter by type, level or subject. Preview any paper and order a custom version from our PhD writers.",
     canonical: "/products",
+    keywords: "sample academic papers Nigeria, research paper examples, thesis samples, seminar paper Nigeria, undergraduate project Nigeria, buy academic papers Nigeria",
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Sample Academic Papers Library",
+        "description": "Browse 18+ sample academic papers across all subjects and levels.",
+        "url": "https://quadtechsolutions.online/products",
+        "provider": { "@id": "https://quadtechsolutions.online/#organization" }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://quadtechsolutions.online/" },
+          { "@type": "ListItem", "position": 2, "name": "Browse Papers", "item": "https://quadtechsolutions.online/products" }
+        ]
+      }
+    ],
   });
 
   const [search, setSearch] = useState("");

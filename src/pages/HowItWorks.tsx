@@ -46,6 +46,29 @@ const HowItWorks = () => {
     title: "How It Works — Order Your Paper in 4 Steps",
     description: "Ordering from Quad Research is simple. Contact us, place your order, we write it, you receive it. PhD-qualified writers, plagiarism-free, delivered on time.",
     canonical: "/how-it-works",
+    keywords: "how to order academic paper Nigeria, academic writing process, order essay Nigeria, custom paper writing steps, Quad Research how it works",
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Order an Academic Paper from Quad Research",
+        "description": "Order a custom academic paper in 4 simple steps.",
+        "step": [
+          { "@type": "HowToStep", "position": 1, "name": "Contact Us", "text": "Reach out via WhatsApp with your requirements and get a personalized quote within minutes." },
+          { "@type": "HowToStep", "position": 2, "name": "Place Your Order", "text": "Provide detailed instructions, confirm your deadline, and make payment to lock in your order." },
+          { "@type": "HowToStep", "position": 3, "name": "We Write", "text": "A PhD-qualified writer matched to your subject crafts your paper from scratch." },
+          { "@type": "HowToStep", "position": 4, "name": "Receive Your Paper", "text": "Get your completed, plagiarism-free paper before your deadline. Request revisions if needed." },
+        ],
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://quadtechsolutions.online/" },
+          { "@type": "ListItem", "position": 2, "name": "How It Works", "item": "https://quadtechsolutions.online/how-it-works" },
+        ],
+      },
+    ],
   });
 
   return (

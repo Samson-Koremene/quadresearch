@@ -11,6 +11,27 @@ const ResearchPapers = () => {
     title: "Research Paper Writing Service Nigeria — APA, MLA, Harvard",
     description: "Expert research paper writing for Nigerian students. Literature reviews, data analysis, methodology, all citation styles. PhD-qualified writers, plagiarism-free guarantee.",
     canonical: "/research-papers",
+    keywords: "research paper writing Nigeria, APA research paper, MLA format Nigeria, Harvard referencing, literature review writing, research methodology Nigeria, academic research help",
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Research Paper Writing Service",
+        "provider": { "@id": "https://quadtechsolutions.online/#organization" },
+        "description": "Expert research paper writing for Nigerian students. Literature reviews, data analysis, methodology, all citation styles — APA, MLA, Harvard, Chicago, IEEE.",
+        "areaServed": { "@type": "Country", "name": "Nigeria" },
+        "serviceType": "Research Paper Writing",
+        "url": "https://quadtechsolutions.online/research-papers"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://quadtechsolutions.online/" },
+          { "@type": "ListItem", "position": 2, "name": "Research Papers", "item": "https://quadtechsolutions.online/research-papers" }
+        ]
+      }
+    ],
   });
 
   return (

@@ -11,6 +11,27 @@ const EssayWriting = () => {
     title: "Essay Writing Service Nigeria — All Academic Levels",
     description: "Professional essay writing for Nigerian students. Argumentative, descriptive, narrative, expository essays — all levels from high school to PhD. 100% original, on-time delivery.",
     canonical: "/essay-writing",
+    keywords: "essay writing service Nigeria, buy essay Nigeria, argumentative essay writing, descriptive essay, narrative essay, academic essay Nigeria, essay help Nigeria",
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Essay Writing Service",
+        "provider": { "@id": "https://quadtechsolutions.online/#organization" },
+        "description": "Professional essay writing for Nigerian students at all academic levels. Argumentative, descriptive, narrative, expository and compare & contrast essays.",
+        "areaServed": { "@type": "Country", "name": "Nigeria" },
+        "serviceType": "Essay Writing",
+        "url": "https://quadtechsolutions.online/essay-writing"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://quadtechsolutions.online/" },
+          { "@type": "ListItem", "position": 2, "name": "Essay Writing", "item": "https://quadtechsolutions.online/essay-writing" }
+        ]
+      }
+    ],
   });
 
   return (

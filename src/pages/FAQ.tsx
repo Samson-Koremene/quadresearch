@@ -90,6 +90,26 @@ const FAQ = () => {
     title: "Frequently Asked Questions",
     description: "Got questions about Quad Research? Find answers about our academic writing process, pricing, plagiarism policy, revisions, confidentiality and delivery times.",
     canonical: "/faq",
+    keywords: "academic writing FAQ Nigeria, Quad Research questions, plagiarism-free guarantee, revision policy, confidential academic writing, how to order essay Nigeria",
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqs.map(({ question, answer }) => ({
+          "@type": "Question",
+          "name": question,
+          "acceptedAnswer": { "@type": "Answer", "text": answer },
+        })),
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://quadtechsolutions.online/" },
+          { "@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://quadtechsolutions.online/faq" },
+        ],
+      },
+    ],
   });
 
   return (

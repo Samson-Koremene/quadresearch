@@ -17,6 +17,21 @@ const Index = () => {
     title: "Professional Academic Writing Services in Nigeria",
     description: "PhD-qualified writers for essays, research papers, theses and dissertations. 100% plagiarism-free, confidential, on-time delivery. Trusted by 55,000+ Nigerian students.",
     canonical: "/",
+    keywords: "academic writing Nigeria, essay writing service Nigeria, research paper writing, thesis writing Nigeria, dissertation help, plagiarism-free papers",
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://quadtechsolutions.online/#webpage",
+      "url": "https://quadtechsolutions.online/",
+      "name": "Professional Academic Writing Services in Nigeria | Quad Research",
+      "description": "PhD-qualified writers for essays, research papers, theses and dissertations. 100% plagiarism-free, confidential, on-time delivery.",
+      "isPartOf": { "@id": "https://quadtechsolutions.online/#website" },
+      "about": { "@id": "https://quadtechsolutions.online/#business" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://quadtechsolutions.online/" }]
+      }
+    },
   });
 
   useEffect(() => {

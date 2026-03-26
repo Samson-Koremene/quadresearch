@@ -6,10 +6,16 @@
     <title>Quad Research — Professional Academic Writing Services in Nigeria</title>
     <meta name="description" content="PhD-qualified writers for essays, research papers, theses, dissertations and more. 100% plagiarism-free, confidential, on-time delivery. Trusted by 55,000+ Nigerian students." />
     <meta name="author" content="Quad Research" />
-    <meta name="keywords" content="academic writing Nigeria, research paper writing, thesis writing, essay writing service, dissertation help, SIWES report" />
+    <meta name="keywords" content="academic writing Nigeria, research paper writing service Nigeria, thesis writing Nigeria, essay writing service, dissertation help Nigeria, SIWES report writing, seminar paper Nigeria" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <link rel="canonical" href="https://quadtechsolutions.online/" />
 
+    <!-- Performance hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://wa.me" />
     <link rel="preload" as="image" href="/hero.webp" type="image/webp" />
+
+    <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -22,38 +28,89 @@
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Quad Research" />
+    <meta property="og:locale" content="en_NG" />
     <meta property="og:url" content="https://quadtechsolutions.online/" />
     <meta property="og:title" content="Quad Research — Professional Academic Writing Services in Nigeria" />
     <meta property="og:description" content="PhD-qualified writers for essays, research papers, theses and dissertations. 100% plagiarism-free. Trusted by 55,000+ students." />
     <meta property="og:image" content="https://quadtechsolutions.online/hero.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Quad Research — Academic Writing Services" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@QuadResearch" />
     <meta name="twitter:url" content="https://quadtechsolutions.online/" />
     <meta name="twitter:title" content="Quad Research — Professional Academic Writing Services" />
     <meta name="twitter:description" content="PhD-qualified writers for essays, research papers, theses and dissertations. 100% plagiarism-free." />
     <meta name="twitter:image" content="https://quadtechsolutions.online/hero.png" />
-    <!-- Structured Data -->
+
+    <!-- Structured Data: Organization + LocalBusiness -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Quad Research",
-      "description": "Professional academic writing services in Nigeria. Essays, research papers, theses, dissertations written by PhD-qualified experts.",
-      "url": "https://quadtechsolutions.online",
-      "logo": "https://quadtechsolutions.online/favicon.ico",
-      "image": "https://quadtechsolutions.online/hero.png",
-      "telephone": "+2347012847111",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "NG"
-      },
-      "sameAs": [
-        "https://wa.me/2347012847111"
-      ],
-      "priceRange": "₦₦",
-      "openingHours": "Mo-Su 00:00-23:59",
-      "serviceType": ["Essay Writing", "Research Paper Writing", "Thesis Writing", "Dissertation Writing", "Academic Writing"]
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://quadtechsolutions.online/#organization",
+          "name": "Quad Research",
+          "url": "https://quadtechsolutions.online",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://quadtechsolutions.online/android-chrome-512x512.png",
+            "width": 512,
+            "height": 512
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+2347012847111",
+            "contactType": "customer service",
+            "availableLanguage": "English",
+            "contactOption": "TollFree"
+          },
+          "sameAs": ["https://wa.me/2347012847111"]
+        },
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://quadtechsolutions.online/#business",
+          "name": "Quad Research",
+          "description": "Professional academic writing services in Nigeria. Essays, research papers, theses, dissertations written by PhD-qualified experts.",
+          "url": "https://quadtechsolutions.online",
+          "image": "https://quadtechsolutions.online/hero.png",
+          "telephone": "+2347012847111",
+          "email": "thetechmarket.hub@gmail.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "NG"
+          },
+          "priceRange": "₦₦",
+          "openingHours": "Mo-Su 00:00-23:59",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Academic Writing Services",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Essay Writing" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Research Paper Writing" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Thesis Writing" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dissertation Writing" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Seminar Paper Writing" } }
+            ]
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://quadtechsolutions.online/#website",
+          "url": "https://quadtechsolutions.online",
+          "name": "Quad Research",
+          "publisher": { "@id": "https://quadtechsolutions.online/#organization" },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://quadtechsolutions.online/products?search={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        }
+      ]
     }
     </script>
   </head>

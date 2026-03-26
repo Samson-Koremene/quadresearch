@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Star, Download, ArrowRight, BookOpen, MessageSquare, X, FileText, GraduationCap, Clock } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -219,6 +220,7 @@ const PaperCard = ({ paper, index, onPreview }: { paper: Paper; index: number; o
 };
 
 const MarketplacePreview = () => {
+  const navigate = useNavigate();
   const [activeFilter, setActiveFilter] = useState("All");
   const [preview, setPreview] = useState<Paper | null>(null);
 
@@ -246,7 +248,7 @@ const MarketplacePreview = () => {
           </div>
           <button
             className="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:gap-3 transition-all shrink-0 self-start md:self-auto"
-            onClick={() => window.location.href = "/products"}
+            onClick={() => navigate("/products")}
           >
             View all papers <ArrowRight className="w-4 h-4" />
           </button>
@@ -301,7 +303,7 @@ const MarketplacePreview = () => {
           <Button
             size="lg"
             className="h-14 px-10 text-base font-bold rounded-2xl shadow-lg shadow-primary/20"
-            onClick={() => window.location.href = "/products"}
+            onClick={() => navigate("/products")}
           >
             Browse Full Library
           </Button>
